@@ -1,0 +1,10 @@
+---
+description: API integration rules
+globs: ["app/**/*", "src/**/*", "lib/**/*"]
+alwaysApply: true
+---
+
+All API work should be abstracted behind service functions.
+Never tightly couple UI directly to raw API responses.
+Create adapters for shipment records, milestones, invoices, and documents.
+Support mock mode and live mode.

@@ -1,0 +1,17 @@
+---
+description: Portal architecture rules
+globs: ["app/**/*", "src/**/*"]
+alwaysApply: true
+---
+
+Structure the portal as:
+- dashboard
+- shipments
+- shipment detail
+- documents
+- invoices
+- account
+
+Use reusable table, filter, status badge, activity timeline, and document row components.
+Mock data first.
+Prepare for future API integration through a typed service layer.

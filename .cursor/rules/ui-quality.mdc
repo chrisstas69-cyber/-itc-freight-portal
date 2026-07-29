@@ -1,0 +1,12 @@
+---
+description: UI quality guardrails
+globs: ["app/**/*", "src/**/*", "components/**/*"]
+alwaysApply: true
+---
+
+Use premium spacing, typography, and contrast.
+Left-align most content.
+Avoid repetitive three-card feature grids.
+Design dashboards like real internal software.
+Every screen needs loading, empty, and error states.
+Status colors must have semantic meaning.

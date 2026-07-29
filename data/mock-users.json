@@ -1,0 +1,14 @@
+[
+  {
+    "id": "USR-001",
+    "name": "Operations Manager",
+    "email": "ops@clientco.com",
+    "role": "customer_admin"
+  },
+  {
+    "id": "USR-002",
+    "name": "Import Coordinator",
+    "email": "imports@clientco.com",
+    "role": "customer_user"
+  }
+]

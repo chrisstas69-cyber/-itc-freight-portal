@@ -1,0 +1,57 @@
+[
+  {
+    "invoiceId": "INV-2026-114",
+    "shipmentId": "SHP-2026-001",
+    "customer": "MedAxis Devices",
+    "amount": 8420.55,
+    "currency": "USD",
+    "status": "Open",
+    "dueDate": "2026-08-05",
+    "issuedAt": "2026-07-22",
+    "pdfUrl": "/mock/invoices/INV-2026-114.pdf"
+  },
+  {
+    "invoiceId": "INV-2026-115",
+    "shipmentId": "SHP-2026-002",
+    "customer": "Northline Apparel",
+    "amount": 12990.0,
+    "currency": "USD",
+    "status": "Paid",
+    "dueDate": "2026-07-12",
+    "issuedAt": "2026-06-28",
+    "pdfUrl": "/mock/invoices/INV-2026-115.pdf"
+  },
+  {
+    "invoiceId": "INV-2026-116",
+    "shipmentId": "SHP-2026-003",
+    "customer": "Harbor Retail Group",
+    "amount": 18750.0,
+    "currency": "USD",
+    "status": "Open",
+    "dueDate": "2026-08-10",
+    "issuedAt": "2026-07-20",
+    "pdfUrl": "/mock/invoices/INV-2026-116.pdf"
+  },
+  {
+    "invoiceId": "INV-2026-117",
+    "shipmentId": "SHP-2026-004",
+    "customer": "MedAxis Devices",
+    "amount": 2140.0,
+    "currency": "USD",
+    "status": "Paid",
+    "dueDate": "2026-07-20",
+    "issuedAt": "2026-07-10",
+    "pdfUrl": "/mock/invoices/INV-2026-117.pdf"
+  },
+  {
+    "invoiceId": "INV-2026-118",
+    "shipmentId": "SHP-2026-005",
+    "customer": "Atlas Defense Logistics",
+    "amount": 9650.25,
+    "currency": "USD",
+    "status": "Open",
+    "dueDate": "2026-08-08",
+    "issuedAt": "2026-07-26",
+    "pdfUrl": "/mock/invoices/INV-2026-118.pdf"
+  }
+]

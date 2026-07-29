@@ -1,0 +1,58 @@
+[
+  {
+    "documentId": "DOC-001",
+    "shipmentId": "SHP-2026-001",
+    "type": "Commercial Invoice",
+    "uploadedAt": "2026-07-24",
+    "fileName": "commercial-invoice-medaxis.pdf"
+  },
+  {
+    "documentId": "DOC-002",
+    "shipmentId": "SHP-2026-002",
+    "type": "Packing List",
+    "uploadedAt": "2026-07-25",
+    "fileName": "packing-list-northline.pdf"
+  },
+  {
+    "documentId": "DOC-003",
+    "shipmentId": "SHP-2026-001",
+    "type": "Air Waybill",
+    "uploadedAt": "2026-07-19",
+    "fileName": "awb-180-44382911.pdf"
+  },
+  {
+    "documentId": "DOC-004",
+    "shipmentId": "SHP-2026-001",
+    "type": "Customs Entry",
+    "uploadedAt": "2026-07-28",
+    "fileName": "customs-entry-shp-001.pdf"
+  },
+  {
+    "documentId": "DOC-005",
+    "shipmentId": "SHP-2026-002",
+    "type": "Bill of Lading",
+    "uploadedAt": "2026-06-28",
+    "fileName": "bol-mscu4821903.pdf"
+  },
+  {
+    "documentId": "DOC-006",
+    "shipmentId": "SHP-2026-005",
+    "type": "ISF Filing",
+    "uploadedAt": "2026-07-24",
+    "fileName": "isf-atlas-005.pdf"
+  },
+  {
+    "documentId": "DOC-007",
+    "shipmentId": "SHP-2026-008",
+    "type": "Arrival Notice",
+    "uploadedAt": "2026-07-27",
+    "fileName": "arrival-notice-mscu9912044.pdf"
+  },
+  {
+    "documentId": "DOC-008",
+    "shipmentId": "SHP-2026-006",
+    "type": "Proof of Delivery",
+    "uploadedAt": "2026-07-28",
+    "fileName": "pod-pending-coastal.pdf"
+  }
+]
