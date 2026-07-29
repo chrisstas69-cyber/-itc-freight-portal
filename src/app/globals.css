@@ -311,3 +311,13 @@
 .hero-brand {
   color-scheme: dark;
 }
+
+/* Photo heroes always keep light copy, even when marketing theme is light */
+.hero-brand .hero-display,
+.hero-brand h1.display-title {
+  color: #ffffff;
+}
+
+.hero-brand .section-label {
+  color: #c4a86a;
+}

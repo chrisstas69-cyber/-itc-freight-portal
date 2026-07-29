@@ -15,6 +15,11 @@ export type ServicePage = {
   handles: string[];
   credentials: string[];
   process?: { step: string; title: string; detail: string }[];
+  /** Placeholder path — swap anytime under /public/images */
+  heroImage: string;
+  overviewImage: string;
+  accent: "steel" | "gold" | "customs" | "facility" | "ground";
+  icon: "air" | "ocean" | "customs" | "cfs" | "drayage";
 };
 
 export const SERVICES: ServicePage[] = [
@@ -38,6 +43,10 @@ export const SERVICES: ServicePage[] = [
       "Bonded CFS staging available after arrival",
       "JFK and metro NY gateway coverage",
     ],
+    heroImage: "/images/hero-port-v5.jpg",
+    overviewImage: "/images/ops-warehouse.jpg",
+    accent: "steel",
+    icon: "air",
   },
   {
     slug: "ocean-freight",
@@ -59,6 +68,10 @@ export const SERVICES: ServicePage[] = [
       "US Customs Bonded Facility · Bonded CFS",
       "Newark / NY metro and multi-coast lanes",
     ],
+    heroImage: "/images/hero-port-v6.jpg",
+    overviewImage: "/images/ops-containers.jpg",
+    accent: "gold",
+    icon: "ocean",
   },
   {
     slug: "customs-clearance",
@@ -108,6 +121,10 @@ export const SERVICES: ServicePage[] = [
           "Released cargo moves to outbound dispatch or remains in bonded staging until authorized.",
       },
     ],
+    heroImage: "/images/hero-port.jpg",
+    overviewImage: "/images/ops-containers.jpg",
+    accent: "customs",
+    icon: "customs",
   },
   {
     slug: "cfs",
@@ -130,6 +147,10 @@ export const SERVICES: ServicePage[] = [
       "Same desk as ITC customs brokerage",
       "Gateway support for JFK and Newark",
     ],
+    heroImage: "/images/facility-warehouse.jpg",
+    overviewImage: "/images/ops-warehouse.jpg",
+    accent: "facility",
+    icon: "cfs",
   },
   {
     slug: "drayage",
@@ -151,6 +172,10 @@ export const SERVICES: ServicePage[] = [
       "NY metro and Northeast coverage",
       "Portal visibility for out-for-delivery and POD",
     ],
+    heroImage: "/images/ops-truck.jpg",
+    overviewImage: "/images/hero-port-v2.jpg",
+    accent: "ground",
+    icon: "drayage",
   },
 ];
 
