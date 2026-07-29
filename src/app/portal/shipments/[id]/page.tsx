@@ -26,6 +26,27 @@ export default async function ShipmentDetailPage({ params }: PageProps) {
     [...shipment.milestones].reverse().find((m) => m.completed)?.label ??
     shipment.status;
 
+  const pickup = shipment.milestones.find(
+    (m) => m.label === "Picked Up" || m.label === "Loaded at Origin",
+  );
+  const delivered = shipment.milestones.find((m) => m.label === "Delivered");
+  const outForDelivery = shipment.milestones.find(
+    (m) => m.label === "Out for Delivery",
+  );
+
+  const pickupStatus = !pickup
+    ? "Not scheduled"
+    : pickup.completed && pickup.at
+      ? `Picked up · ${formatDateTime(pickup.at)}`
+      : "Awaiting pickup";
+
+  const podStatus =
+    delivered?.completed && delivered.at
+      ? "POD on file"
+      : outForDelivery?.completed
+        ? "Pending delivery / POD"
+        : "Not yet delivered";
+
   return (
     <div className="space-y-7">
       <header className="border-b border-line pb-7">
@@ -38,7 +59,7 @@ export default async function ShipmentDetailPage({ params }: PageProps) {
 
         <div className="mt-4 flex flex-wrap items-start justify-between gap-5">
           <div className="min-w-0">
-            <p className="portal-eyebrow">Import clearance</p>
+            <p className="portal-eyebrow">Shipment control</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
               <h1 className="mono-ref text-[1.375rem] font-semibold tracking-tight text-snow sm:text-[1.625rem]">
                 {shipment.id}
@@ -70,7 +91,7 @@ export default async function ShipmentDetailPage({ params }: PageProps) {
       <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
         {[
           {
-            label: "Lane",
+            label: "Lane / route",
             value: `${shipment.origin} → ${shipment.destination}`,
             mono: false,
           },
@@ -93,14 +114,38 @@ export default async function ShipmentDetailPage({ params }: PageProps) {
         ))}
       </div>
 
+      <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
+        <div className="bg-panel px-4 py-4 hairline-top">
+          <p className="meta-label">Pickup status</p>
+          <p className="mt-2 text-[13px] text-snow">{pickupStatus}</p>
+          {pickup?.location ? (
+            <p className="mt-1 text-[12px] text-mist">{pickup.location}</p>
+          ) : null}
+        </div>
+        <div className="bg-panel px-4 py-4 hairline-top">
+          <p className="meta-label">POD — proof of delivery</p>
+          <p className="mt-2 text-[13px] text-snow">{podStatus}</p>
+          {delivered?.completed && delivered.at ? (
+            <p className="mt-1 text-[12px] text-mist">
+              Delivered {formatDateTime(delivered.at)}
+              {delivered.location ? ` · ${delivered.location}` : ""}
+            </p>
+          ) : (
+            <p className="mt-1 text-[12px] text-mist">
+              POD posts when delivery is confirmed against this shipment ID.
+            </p>
+          )}
+        </div>
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-5">
         <section className="border border-line bg-panel p-5 hairline-top md:p-6 lg:col-span-3">
           <div className="mb-6 flex items-baseline justify-between gap-3 border-b border-line pb-3.5">
             <div>
               <h2 className="meta-label text-fog">Clearance & bonded milestones</h2>
               <p className="mt-1.5 text-[12px] leading-relaxed text-mist">
-                Import clearance, bonded staging, and cargo release events — source of
-                truth for this shipment
+                Import clearance, bonded staging, pickup, release, and delivery
+                events — source of truth for this shipment
               </p>
             </div>
             <p className="mono-ref shrink-0 text-[12px] text-mist">
@@ -144,9 +189,7 @@ export default async function ShipmentDetailPage({ params }: PageProps) {
             </div>
             {documents.length === 0 ? (
               <p className="mt-4 border border-dashed border-line/80 px-3.5 py-6 text-[13px] leading-relaxed text-mist">
-                No entry filings or shipping documents posted yet. Commercial invoices,
-                packing lists, AWBs/BOLs, and customs packets appear here when attached
-                to this shipment.
+                No entry filings or shipping documents posted yet.
               </p>
             ) : (
               <ul className="mt-4 divide-y divide-line border border-line">

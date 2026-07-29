@@ -16,8 +16,8 @@
   --color-snow: #eef2f6;
   --color-steel: #4a7fa5;
   --color-steel-bright: #6a9fc0;
-  --color-gold: #b89b5e;
-  --color-gold-dim: #8a7344;
+  --color-gold: #d4a017;
+  --color-gold-dim: #a67c12;
 
   --color-status-transit: #4a7fa5;
   --color-status-customs: #c4a035;
@@ -286,8 +286,8 @@
   --color-snow: #0c1218;
   --color-steel: #2f5f82;
   --color-steel-bright: #3d7399;
-  --color-gold: #8a7040;
-  --color-gold-dim: #6e5933;
+  --color-gold: #c4860a;
+  --color-gold-dim: #9a6a08;
 }
 
 .marketing-root[data-theme="dark"] {
@@ -304,8 +304,8 @@
   --color-snow: #eef2f6;
   --color-steel: #4a7fa5;
   --color-steel-bright: #6a9fc0;
-  --color-gold: #b89b5e;
-  --color-gold-dim: #8a7344;
+  --color-gold: #d4a017;
+  --color-gold-dim: #a67c12;
 }
 
 .hero-brand {

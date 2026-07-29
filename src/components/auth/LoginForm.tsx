@@ -4,7 +4,11 @@ import { FormEvent, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { TextInput } from "@/components/ui/Input";
-import { authenticateUser, getDemoCredentials } from "@/lib/services/portal";
+import {
+  authenticateUser,
+  findShipmentByTrack,
+  getDemoCredentials,
+} from "@/lib/services/portal";
 import { saveSession } from "@/lib/auth/session";
 
 export function LoginForm() {
@@ -25,12 +29,20 @@ export function LoginForm() {
     try {
       const user = await authenticateUser(email, password);
       if (!user) {
-        setError("Email or password is incorrect. Confirm your account credentials and try again.");
+        setError(
+          "Email or password is incorrect. Confirm your account credentials and try again.",
+        );
         return;
       }
       saveSession(user);
-      if (track) {
-        router.push(`/portal/shipments?q=${encodeURIComponent(track)}`);
+
+      if (track?.trim()) {
+        const match = await findShipmentByTrack(track);
+        if (match) {
+          router.push(`/portal/shipments/${match.id}`);
+        } else {
+          router.push(`/portal/shipments?q=${encodeURIComponent(track.trim())}`);
+        }
       } else {
         router.push("/portal");
       }
@@ -45,9 +57,8 @@ export function LoginForm() {
     <form onSubmit={onSubmit} className="space-y-5">
       {track ? (
         <div className="border border-steel/40 bg-steel/10 px-3 py-2.5 text-[13px] text-fog">
-          Reference held for lookup:{" "}
-          <span className="mono-ref text-snow">{track}</span>
-          . Sign in to open the shipment register.
+          Sign in to view status for{" "}
+          <span className="mono-ref text-snow">{track}</span>.
         </div>
       ) : null}
 

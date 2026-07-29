@@ -81,6 +81,29 @@ export async function getShipment(id: string): Promise<Shipment | null> {
   return asShipments().find((s) => s.id === id) ?? null;
 }
 
+export async function findShipmentByTrack(track: string): Promise<Shipment | null> {
+  if (!USE_MOCK) {
+    throw new Error("Live shipment API is not configured.");
+  }
+  await delay(80);
+  const raw = track.trim().toLowerCase();
+  const compact = raw.replace(/[\s-]/g, "");
+  if (!raw) return null;
+
+  return (
+    asShipments().find((s) => {
+      const id = s.id.toLowerCase();
+      const ref = s.reference.toLowerCase();
+      return (
+        id === raw ||
+        ref === raw ||
+        id.replace(/[\s-]/g, "") === compact ||
+        ref.replace(/[\s-]/g, "") === compact
+      );
+    }) ?? null
+  );
+}
+
 export async function listInvoices(): Promise<Invoice[]> {
   if (!USE_MOCK) {
     throw new Error("Live invoice API is not configured.");
