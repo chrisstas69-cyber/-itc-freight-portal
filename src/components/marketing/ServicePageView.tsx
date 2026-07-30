@@ -9,6 +9,7 @@ const ACCENT_RAIL: Record<ServicePage["accent"], string> = {
   customs: "bg-status-customs",
   facility: "bg-gold-dim",
   ground: "bg-status-delivery",
+  military: "bg-gold",
 };
 
 const ACCENT_ICON: Record<ServicePage["accent"], string> = {
@@ -17,6 +18,7 @@ const ACCENT_ICON: Record<ServicePage["accent"], string> = {
   customs: "border-status-customs/40 text-status-customs",
   facility: "border-gold-dim/50 text-gold",
   ground: "border-status-delivery/40 text-status-delivery",
+  military: "border-gold/50 text-gold",
 };
 
 function ServiceGlyph({ icon }: { icon: ServicePage["icon"] }) {
@@ -51,6 +53,13 @@ function ServiceGlyph({ icon }: { icon: ServicePage["icon"] }) {
       return (
         <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
           <path d="M3 15h11V8H3v7Zm11 0h4l3 3v-5h-7v2ZM6 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+        </svg>
+      );
+    case "military":
+      return (
+        <svg viewBox="0 0 24 24" className={common} fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+          <path d="M12 3 4 7v4c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V7l-8-4Z" />
+          <path d="M12 11v4M10 13h4" />
         </svg>
       );
   }

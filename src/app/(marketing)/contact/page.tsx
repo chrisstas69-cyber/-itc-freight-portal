@@ -43,7 +43,7 @@ export default function ContactPage() {
           <div className="border border-line bg-panel p-7 md:p-10">
             <h2 className="display-title text-[1.375rem]">Headquarters</h2>
             <address className="mt-5 not-italic text-[15px] leading-relaxed text-fog">
-              ITC Group Inc.
+              ITC Group USA
               <br />
               500 Ocean Avenue
               <br />

@@ -18,11 +18,11 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ITC Group Inc. | Freight Forwarding & Logistics",
-    template: "%s | ITC Group",
+    default: "ITC Group USA | Freight Forwarding & Logistics",
+    template: "%s | ITC Group USA",
   },
   description:
-    "Family-owned ITC Group Inc. — customs brokerage, U.S. Customs Bonded facility, and multi-modal freight from East Rockaway / Ports of New York since 1984. IATA/TSA IAC · FMC# 3887.",
+    "Family-owned ITC Group USA — customs brokerage, U.S. Customs Bonded facility, and multi-modal freight from East Rockaway / Ports of New York since 1984. IATA/TSA IAC · FMC# 3887.",
 };
 
 export default function RootLayout({

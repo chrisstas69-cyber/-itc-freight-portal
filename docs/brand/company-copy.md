@@ -1,7 +1,12 @@
 # ITC Group Company Copy
 
 ## Company
-ITC Group Inc. is a full-service global logistics provider operating as Ikaros Transport Corporation.
+ITC Group USA is the parent brand for a family-owned, full-service global logistics provider.
+
+## Divisions
+- ITC International
+- JAV International (mark: ITCJAV)
+- Cargo Transport Logistics Inc. (mark: ITCCTL)
 
 ## Heritage
 Founded in 1984.

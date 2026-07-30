@@ -9,6 +9,13 @@ export const metadata: Metadata = {
     "U.S. Customs Bonded office and warehouse · Bonded CFS at 500 Ocean Avenue, East Rockaway, NY.",
 };
 
+const OPS_SECURITY = [
+  COMPANY.security.staffing,
+  COMPANY.security.alarm,
+  COMPANY.security.cctv,
+  COMPANY.security.inventory,
+] as const;
+
 export default function FacilityPage() {
   return (
     <article>
@@ -55,9 +62,7 @@ export default function FacilityPage() {
                   {[
                     ["Address", `${COMPANY.hq.line1}, ${COMPANY.hq.city}`],
                     ["Type", COMPANY.credentials.bonded],
-                    ["Security", `${COMPANY.security.alarm} · ${COMPANY.security.cctv}`],
-                    ["Inventory", COMPANY.security.inventory],
-                    ["Visibility", COMPANY.military.visibility],
+                    ["Brokerage", "U.S. Customs Brokerage"],
                     ["Gateways", "JFK · Newark · Ports of New York"],
                   ].map(([k, v]) => (
                     <div key={k}>
@@ -84,6 +89,29 @@ export default function FacilityPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-panel">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+          <p className="section-label">Operations &amp; Security</p>
+          <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.75rem]">
+            ITC-operated. Fully monitored.
+          </h2>
+          <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-mist">
+            Facility controls from the company one-sheet — staffing, alarm, CCTV,
+            and inventory systems that keep bonded cargo accountable.
+          </p>
+          <ul className="mt-12 grid gap-4 md:grid-cols-2">
+            {OPS_SECURITY.map((item) => (
+              <li
+                key={item}
+                className="border border-line bg-ink/30 px-5 py-6 text-[14px] leading-relaxed text-fog hairline-top"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </article>

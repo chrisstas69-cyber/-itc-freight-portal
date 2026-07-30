@@ -1,6 +1,6 @@
 # ITC Freight Portal V1
 
-Premium marketing site and authenticated client portal for **ITC Group Inc.** (Ikaros Transport Corporation).
+Premium marketing site and authenticated client portal for **ITC Group USA**, with divisions **ITC International**, **JAV International**, and **Cargo Transport Logistics Inc.**
 
 ## Stack
 - Next.js 15 (App Router) + TypeScript

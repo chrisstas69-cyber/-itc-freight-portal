@@ -5,10 +5,13 @@ import { SERVICES } from "@/lib/content/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Air (IATA/TSA IAC), ocean (FMC# 3887), customs brokerage, Bonded CFS, and truck/rail — 100% in-house from East Rockaway.",
+    "Air, ocean, customs brokerage, Bonded CFS, drayage, and specialized Military Operations — 100% in-house from East Rockaway.",
 };
 
 export default function ServicesIndexPage() {
+  const standard = SERVICES.filter((s) => !s.featured);
+  const featured = SERVICES.filter((s) => s.featured);
+
   return (
     <article>
       <header className="border-b border-line bg-obsidian">
@@ -20,20 +23,44 @@ export default function ServicesIndexPage() {
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fog">
             Air, ocean, vessel and aircraft chartering, truck, and rail —
             brokerage and Bonded CFS under one in-house East Rockaway desk. U.S.
-            and Europe freight connections.
+            and Europe freight connections — plus a specialized Military
+            Operations division.
           </p>
         </div>
       </header>
+
+      {featured.map((service) => (
+        <section key={service.slug} className="border-b border-line bg-panel">
+          <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-12">
+            <Link
+              href={`/services/${service.slug}`}
+              className="block border border-gold/40 bg-obsidian px-6 py-8 transition-colors hover:border-gold/70 focus-ring hairline-top md:px-8 md:py-10"
+            >
+              <p className="section-label text-gold">Specialized division</p>
+              <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.875rem]">
+                {service.title}
+              </h2>
+              <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-fog">
+                {service.teaser}
+              </p>
+              <span className="mt-6 inline-flex text-[12px] tracking-wide text-steel uppercase">
+                View division →
+              </span>
+            </Link>
+          </div>
+        </section>
+      ))}
+
       <section className="bg-ink">
         <div className="mx-auto max-w-7xl divide-y divide-line border-b border-line px-5 md:px-8">
-          {SERVICES.map((service) => (
+          {standard.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
               className="grid gap-2 py-7 transition-colors hover:bg-panel/40 focus-ring md:grid-cols-12 md:items-baseline md:gap-8"
             >
               <h2 className="text-[1.125rem] font-medium text-snow md:col-span-4">
-                {service.navLabel}
+                {service.homeLabel}
               </h2>
               <p className="text-[14px] leading-relaxed text-fog md:col-span-7">
                 {service.teaser}

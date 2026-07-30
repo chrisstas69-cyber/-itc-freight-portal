@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { COMPANY } from "@/lib/content/company";
+import { COMPANY, ENTITIES } from "@/lib/content/company";
 import { SERVICES } from "@/lib/content/services";
 
 export function SiteFooter() {
@@ -11,17 +11,17 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <Image
               src="/brand/itc-grp-mark.png"
-              alt="ITC GRP"
+              alt="ITC Group USA"
               width={48}
               height={70}
               className="h-12 w-auto"
             />
             <div>
-              <p className="text-[14px] font-semibold tracking-[0.06em] text-snow">
-                ITC <span className="text-gold">GRP</span>
+              <p className="text-[14px] font-semibold tracking-[0.04em] text-snow">
+                ITC Group <span className="text-gold">USA</span>
               </p>
               <p className="mt-1 text-[12px] text-mist">
-                {COMPANY.dba}
+                Parent brand · Est. {COMPANY.founded}
               </p>
             </div>
           </div>
@@ -29,18 +29,25 @@ export function SiteFooter() {
             {COMPANY.ownership} customs brokerage, U.S. Customs Bonded facility,
             and multi-modal forwarding from East Rockaway since {COMPANY.founded}.
           </p>
-          <p className="mt-3 max-w-sm text-[11px] leading-relaxed text-mist">
+          <p className="mt-3 max-w-sm text-[12px] leading-relaxed text-mist">
+            {COMPANY.legalEntityLine}
+          </p>
+          <p className="mt-2 max-w-sm text-[11px] leading-relaxed text-mist">
             IATA / TSA Approved IAC · FMC# 3887 · U.S. Customs Bonded
           </p>
         </div>
 
         <div className="md:col-span-3">
-          <p className="meta-label">Headquarters</p>
-          <address className="mt-3 not-italic text-[13px] leading-relaxed text-fog">
-            500 Ocean Avenue
-            <br />
-            East Rockaway, NY 11518
-          </address>
+          <p className="meta-label">Divisions</p>
+          <ul className="mt-3 space-y-3 text-[13px] text-fog">
+            {ENTITIES.divisions.map((division) => (
+              <li key={division.id}>
+                <p className="text-[12px] font-medium leading-snug text-snow">
+                  {division.name}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="md:col-span-2">
@@ -92,22 +99,13 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-line">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-5 md:flex-row md:items-center md:justify-between md:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 md:flex-row md:items-center md:justify-between md:px-8">
           <p className="text-[11px] text-mist">
-            © {new Date().getFullYear()} ITC Group Inc. All rights reserved.
+            © {new Date().getFullYear()} {COMPANY.parentBrand}. All rights reserved.
           </p>
-          <div className="flex items-center gap-3">
-            <p className="text-[10px] tracking-[0.12em] text-mist uppercase">
-              Related entities
-            </p>
-            <Image
-              src="/brand/itc-entities-sheet.png"
-              alt="ITC JAV, ITC GRP, and ITC CTL"
-              width={160}
-              height={48}
-              className="h-8 w-auto opacity-80"
-            />
-          </div>
+          <p className="text-[11px] text-mist">
+            Headquarters · {COMPANY.hq.line1}, {COMPANY.hq.city}
+          </p>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { GlobalReach } from "@/components/marketing/GlobalReach";
+import { HomeServicesSection } from "@/components/marketing/HomeServicesSection";
 import { TrackingBar } from "@/components/marketing/TrackingBar";
 import {
   COMPANY,
@@ -11,7 +12,7 @@ import {
 import { SERVICES } from "@/lib/content/services";
 
 export const metadata: Metadata = {
-  title: "ITC Group Inc. | Freight Forwarding & Logistics",
+  title: "ITC Group USA | Freight Forwarding & Logistics",
   description:
     "Family-owned customs brokerage, U.S. Customs Bonded CFS, and multi-modal freight from East Rockaway / Ports of New York since 1984.",
 };
@@ -35,7 +36,7 @@ export default function HomePage() {
         />
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:py-32">
           <h1 className="hero-display max-w-[20ch] text-[1.75rem] font-semibold !text-[#c4a86a] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3rem]">
-            Ikaros Transport USA · Est. 1984
+            ITC Group USA · Est. 1984
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70 md:mt-5">
             Family-owned since 1984. When you call, a real person picks up — not a
@@ -99,46 +100,7 @@ export default function HomePage() {
 
       <GlobalReach />
 
-      <section className="border-b border-line bg-panel">
-        <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-16">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="section-label">Services</p>
-              <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.75rem]">
-                Capabilities across the import path
-              </h2>
-              <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-mist">
-                {COMPANY.modes}. U.S. and Europe freight connections.
-              </p>
-            </div>
-            <Link
-              href="/services"
-              className="text-[13px] text-steel transition-colors hover:text-snow focus-ring"
-            >
-              All services →
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
-            {SERVICES.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group flex flex-col bg-panel p-5 transition-colors hover:bg-panel-elevated focus-ring hairline-top"
-              >
-                <h3 className="text-[14px] font-medium tracking-tight text-snow group-hover:text-gold">
-                  {service.navLabel}
-                </h3>
-                <p className="mt-2 flex-1 text-[12px] leading-relaxed text-mist">
-                  {service.teaser}
-                </p>
-                <span className="mt-4 text-[11px] tracking-wide text-steel uppercase">
-                  Details
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HomeServicesSection services={SERVICES} />
 
       {/* Company profile teaser */}
       <section className="border-b border-line bg-ink">
@@ -149,8 +111,8 @@ export default function HomePage() {
               Family-owned. Ports of New York.
             </h2>
             <p className="mt-4 text-[14px] leading-relaxed text-fog">
-              Founded in {COMPANY.founded}, ITC Group runs brokerage, bonded
-              warehouse, and forwarding as a single East Rockaway desk —{" "}
+              Founded in {COMPANY.founded}, {COMPANY.parentBrand} runs brokerage,
+              bonded warehouse, and forwarding as a single East Rockaway desk —{" "}
               {COMPANY.opsModel.toLowerCase()}.
             </p>
             <Link
@@ -172,7 +134,7 @@ export default function HomePage() {
             <div className="border border-line bg-panel px-5 py-6 hairline-top">
               <p className="meta-label">Government programs</p>
               <p className="mt-4 text-[13px] leading-relaxed text-fog">
-                {COMPANY.military.tenure}
+                {COMPANY.military.tenure}. {COMPANY.military.dod}.
               </p>
               <p className="mt-3 text-[13px] leading-relaxed text-mist">
                 {COMPANY.military.visibility}

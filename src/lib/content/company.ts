@@ -1,8 +1,9 @@
-/** Verified ITC Group company profile — use across marketing copy. */
+/** ITC Group USA company profile and entity structure. */
 
 export const COMPANY = {
-  legalName: "ITC Group Inc.",
-  dba: "Ikaros Transport Corporation",
+  /** Parent brand shown in header / primary identity */
+  parentBrand: "ITC Group USA",
+  legalName: "ITC Group USA",
   founded: 1984,
   ownership: "Family-owned and operated",
   hq: {
@@ -12,22 +13,67 @@ export const COMPANY = {
   },
   footprint: "U.S. and Europe freight connections",
   opsModel: "100% in-house operations — no subcontracting",
+  /** Legal entity line from company one-sheet */
+  legalEntityLine: "Ikaros Transport Corp, dba ITC International",
   credentials: {
     iataTsa: "IATA and TSA Approved Indirect Air Carrier (IAC)",
     fmc: "Licensed and bonded Ocean Freight Forwarder · FMC# 3887",
     bonded: "U.S. Customs Bonded office and warehouse",
+    marad:
+      "Licensed to contract with any U.S. and foreign flag carriers, maintaining MARAD compliance",
   },
   modes:
     "Air, ocean, vessel chartering, aircraft chartering, truck, and rail",
   military: {
-    tenure: "25+ years supporting Foreign Military Sales (FMS), DoD cargo, and ITAR-regulated programs",
-    visibility: "ILCS transfer capability with TCN / Multi-Pack TCN visibility",
+    tenure:
+      "Over 25 years of experience with the FMS (Foreign Military Sales) program",
+    importExport: "Military cargo import and export expertise",
+    itar: "U.S. Department of State license and ITAR regulations compliance",
+    visibility:
+      "ILCS data transfer for all FMS cargo by TCN and multi-pack TCNs",
+    dod: "Department of Defense cargo handling",
   },
   security: {
-    alarm: "UL-compliant alarm system",
-    cctv: "24-hour CCTV",
-    inventory: "Integrated real-time office and warehouse inventory tracking",
+    staffing: "Office and warehouse operated by ITC employees only — no subcontracting",
+    alarm: "Fully alarmed facility, UL standards compliant",
+    cctv: "24-hour CCTV monitored warehouse",
+    inventory:
+      "Fully integrated computerized network providing real-time inventory control for all cargo received, loaded, and shipped",
   },
+} as const;
+
+/**
+ * Group structure.
+ * Logo marks on public/brand/itc-entities-sheet.png (left → right):
+ * ITCJAV · ITCGRP · ITCCTL
+ */
+export const ENTITIES = {
+  parent: {
+    name: "ITC Group USA",
+    role: "Parent brand",
+    mark: "ITCGRP",
+    logoSrc: "/brand/itc-grp-mark.png",
+  },
+  divisions: [
+    {
+      id: "itc-international",
+      name: "ITC International",
+      role: "Division",
+      mark: null,
+    },
+    {
+      id: "jav-international",
+      name: "JAV International",
+      role: "Division",
+      mark: "ITCJAV",
+    },
+    {
+      id: "cargo-transport-logistics",
+      name: "Cargo Transport Logistics Inc.",
+      role: "Division",
+      mark: "ITCCTL",
+    },
+  ],
 } as const;
 
 /** Compact credential chips for trust strips */
@@ -43,14 +89,16 @@ export const TRUST_CREDENTIALS = [
 export const SECURITY_POINTS = [
   {
     title: "Facility security",
-    detail: "UL-compliant alarm system with 24-hour CCTV coverage.",
+    detail: "Fully alarmed facility, UL standards compliant, with 24-hour CCTV monitored warehouse.",
   },
   {
     title: "Inventory control",
-    detail: "Integrated real-time tracking across office and warehouse inventory.",
+    detail:
+      "Fully integrated computerized network providing real-time inventory control for all cargo received, loaded, and shipped.",
   },
   {
     title: "In-house execution",
-    detail: "Family-owned operations desk — no subcontracted handoffs.",
+    detail:
+      "Office and warehouse operated by ITC employees only — no subcontracting.",
   },
 ] as const;

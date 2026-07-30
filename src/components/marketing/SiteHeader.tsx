@@ -33,15 +33,15 @@ export function SiteHeader() {
         <Link href="/" className="flex shrink-0 items-center gap-3 focus-ring">
           <Image
             src="/brand/itc-grp-mark.png"
-            alt="ITC GRP"
+            alt="ITC Group USA"
             width={56}
             height={80}
             className="h-11 w-auto"
             priority
           />
           <span className="hidden flex-col leading-none sm:flex">
-            <span className="text-[15px] font-semibold tracking-[0.06em] text-snow">
-              ITC <span className="text-gold">GRP</span>
+            <span className="text-[15px] font-semibold tracking-[0.04em] text-snow">
+              ITC Group <span className="text-gold">USA</span>
             </span>
             <span className="mt-1 text-[10px] tracking-[0.14em] text-mist uppercase">
               Est. 1984

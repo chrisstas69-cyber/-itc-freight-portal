@@ -10,7 +10,8 @@ Project goals:
 - Make the experience feel like a serious institutional logistics platform.
 
 Real company facts to preserve:
-- ITC Group Inc. / Ikaros Transport Corporation
+- Parent brand: ITC Group USA (ITCGRP mark)
+- Divisions: ITC International · JAV International (ITCJAV) · Cargo Transport Logistics Inc. (ITCCTL)
 - Founded in 1984 · Family-owned and operated
 - Headquarters: 500 Ocean Avenue, East Rockaway, NY 11518 · Ports of New York
 - U.S. and Europe freight connections
@@ -22,6 +23,7 @@ Real company facts to preserve:
 - 25+ years FMS / DoD / ITAR programs · ILCS with TCN / Multi-Pack TCN visibility
 - UL-compliant alarm · 24-hour CCTV · real-time office/warehouse inventory tracking
 - Verticals: military, apparel, food & beverage, medical devices, retail
+- Do not use "ICC Group" / "ICC International" naming
 
 Rules:
 - Build mobile-first.

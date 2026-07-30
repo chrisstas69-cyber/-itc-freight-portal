@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { COMPANY } from "@/lib/content/company";
+import { COMPANY, ENTITIES } from "@/lib/content/company";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "ITC Group International — a family-owned worldwide freight logistics company. Customs brokerage, U.S. Customs Bonded facility, and door-to-door freight from East Rockaway since 1984.",
+    "ITC Group USA — family-owned parent brand with divisions ITC International, JAV International, and Cargo Transport Logistics Inc. Customs brokerage, Bonded CFS, and door-to-door freight from East Rockaway since 1984.",
 };
 
 const PROFILE_ROWS: [string, string][] = [
   ["Founded", String(COMPANY.founded)],
   ["Ownership", "Family-owned and operated · worldwide logistics"],
-  ["Entities", "ITC Group USA · ITC Group International · JAV International · CTL"],
+  ["Parent", ENTITIES.parent.name],
+  [
+    "Divisions",
+    ENTITIES.divisions.map((d) => d.name).join(" · "),
+  ],
   ["Headquarters", `${COMPANY.hq.line1}, ${COMPANY.hq.city}`],
   ["Footprint", COMPANY.footprint],
   ["Operations", COMPANY.opsModel],
@@ -45,17 +49,8 @@ export default function AboutPage() {
         <div className="absolute top-0 left-0 h-full w-1 bg-gold" aria-hidden />
         <div className="relative mx-auto flex min-h-[26rem] max-w-7xl flex-col justify-end px-5 py-16 md:min-h-[32rem] md:justify-center md:px-8 md:py-24 lg:max-w-[42rem]">
           <p className="section-label text-[#c4a86a]">About</p>
-          <h1 className="hero-display mt-5 max-w-[22ch] text-[2rem] !text-white md:text-[2.75rem]">
-            <span className="block">ITC Group USA</span>
-            <span className="mt-2 block text-[0.92em] font-medium text-white/90 md:mt-2.5">
-              ITC Group International
-            </span>
-            <span className="mt-2 block text-[0.92em] font-medium text-white/90 md:mt-2.5">
-              JAV International
-            </span>
-            <span className="mt-2 block text-[0.92em] font-medium text-white/90 md:mt-2.5">
-              Cargo Transport Logistics Inc.
-            </span>
+          <h1 className="hero-display mt-5 max-w-[18ch] text-[2.25rem] !text-white md:text-[3rem]">
+            {ENTITIES.parent.name}
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">
             A family-owned worldwide freight logistics company — brokerage,
@@ -85,7 +80,7 @@ export default function AboutPage() {
                   Family-owned. Worldwide reach.
                 </h2>
                 <p className="mt-5 text-[15px] leading-relaxed text-fog">
-                  ITC Group International is a family-owned and operated freight
+                  {ENTITIES.parent.name} is a family-owned and operated freight
                   logistics company with a major worldwide footprint — moving cargo
                   door to door while keeping clearance, bonded staging, and delivery
                   under one accountable desk. Founded in {COMPANY.founded} and based
@@ -94,9 +89,13 @@ export default function AboutPage() {
                   multi-modal forwarding — {COMPANY.opsModel.toLowerCase()}.
                 </p>
                 <p className="mt-5 text-[15px] leading-relaxed text-fog">
-                  From the Ports of New York to partners across {COMPANY.footprint.toLowerCase()},
-                  we move cargo by air, ocean, truck, and rail, and support vessel
-                  and aircraft chartering when programs require dedicated lift.
+                  From the Ports of New York to partners across{" "}
+                  {COMPANY.footprint.toLowerCase()}, we move cargo by air, ocean,
+                  truck, and rail, and support vessel and aircraft chartering when
+                  programs require dedicated lift.
+                </p>
+                <p className="mt-5 text-[14px] leading-relaxed text-mist">
+                  Legal entity: {COMPANY.legalEntityLine}.
                 </p>
                 <dl className="mt-12 space-y-0 border border-line">
                   {PROFILE_ROWS.map(([k, v], i) => (
@@ -118,6 +117,64 @@ export default function AboutPage() {
       </section>
 
       <section className="border-b border-line bg-panel">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+          <p className="section-label">Group structure</p>
+          <h2 className="display-title mt-3 max-w-2xl text-[1.5rem] md:text-[1.75rem]">
+            One parent. Three operating divisions.
+          </h2>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fog">
+            {ENTITIES.parent.name} is the parent brand. Under it,{" "}
+            {ENTITIES.divisions.map((d) => d.name).join(", ").replace(/, ([^,]*)$/, ", and $1")}{" "}
+            operate as separate divisions — sharing the same East Rockaway desk,
+            bonded facility, and in-house execution model.
+          </p>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="border border-gold/40 bg-obsidian px-5 py-7 hairline-top md:px-6 sm:col-span-2 xl:col-span-1">
+              <p className="meta-label text-gold">Parent brand</p>
+              <div className="mt-4 flex items-center gap-3">
+                <Image
+                  src="/brand/itc-grp-mark.png"
+                  alt=""
+                  width={40}
+                  height={58}
+                  className="h-12 w-auto"
+                />
+                <div>
+                  <p className="text-[15px] font-medium text-snow">
+                    {ENTITIES.parent.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {ENTITIES.divisions.map((division) => (
+              <div
+                key={division.id}
+                className="border border-line bg-ink/30 px-5 py-7 hairline-top md:px-6"
+              >
+                <p className="meta-label">Division</p>
+                <p className="mt-4 text-[14px] font-medium leading-snug text-snow">
+                  {division.name}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 border border-line bg-ink/20 px-5 py-5 md:px-6">
+            <p className="meta-label">Entity marks</p>
+            <Image
+              src="/brand/itc-entities-sheet.png"
+              alt="ITC JAV, ITC GRP, and ITC CTL marks"
+              width={216}
+              height={104}
+              className="mt-4 h-14 w-auto opacity-90"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-ink">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -163,7 +220,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-ink">
+      <section className="border-b border-line bg-panel">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
@@ -174,13 +231,12 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-7">
               <p className="text-[15px] leading-relaxed text-fog">
-                {COMPANY.military.tenure}. Movements are handled with documentation
-                discipline and chain-of-custody awareness from gateway through
-                release.
+                {COMPANY.military.tenure}. {COMPANY.military.importExport}.{" "}
+                {COMPANY.military.itar}.
               </p>
               <p className="mt-5 text-[15px] leading-relaxed text-fog">
-                {COMPANY.military.visibility} — so transfer status stays coherent
-                against the operational record.
+                {COMPANY.military.visibility}. {COMPANY.military.dod} —
+                coordinated with licensed customs brokerage and bonded CFS staging.
               </p>
               <p className="mt-5 text-[14px] leading-relaxed text-mist">
                 Commercial verticals include apparel, food & beverage, medical
