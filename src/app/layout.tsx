@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | ITC Group",
   },
   description:
-    "ITC Group Inc. — customs brokerage, US Customs Bonded Facility (Bonded CFS), and multi-modal freight forwarding from East Rockaway, NY since 1984.",
+    "Family-owned ITC Group Inc. — customs brokerage, U.S. Customs Bonded facility, and multi-modal freight from East Rockaway / Ports of New York since 1984. IATA/TSA IAC · FMC# 3887.",
 };
 
 export default function RootLayout({

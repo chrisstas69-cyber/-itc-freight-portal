@@ -11,9 +11,16 @@ Project goals:
 
 Real company facts to preserve:
 - ITC Group Inc. / Ikaros Transport Corporation
-- Founded in 1984
-- Headquarters: 500 Ocean Avenue, East Rockaway, NY 11518
-- Core services: customs brokerage, warehousing and distribution, domestic and international freight forwarding
+- Founded in 1984 · Family-owned and operated
+- Headquarters: 500 Ocean Avenue, East Rockaway, NY 11518 · Ports of New York
+- U.S. and Europe freight connections
+- 100% in-house operations, no subcontracting
+- IATA and TSA Approved Indirect Air Carrier (IAC)
+- Licensed and bonded Ocean Freight Forwarder (FMC# 3887)
+- U.S. Customs Bonded office and warehouse
+- Modes: air, ocean, vessel chartering, aircraft chartering, truck, rail
+- 25+ years FMS / DoD / ITAR programs · ILCS with TCN / Multi-Pack TCN visibility
+- UL-compliant alarm · 24-hour CCTV · real-time office/warehouse inventory tracking
 - Verticals: military, apparel, food & beverage, medical devices, retail
 
 Rules:

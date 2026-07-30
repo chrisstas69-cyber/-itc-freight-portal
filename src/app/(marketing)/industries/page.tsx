@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const INDUSTRIES = [
   {
-    name: "Military",
+    name: "Military & Government",
     detail:
-      "Priority air imports with documentation control and chain-of-custody awareness through U.S. entry.",
+      "25+ years supporting Foreign Military Sales (FMS), DoD cargo, and ITAR-regulated programs — with ILCS transfer capability and TCN / Multi-Pack TCN visibility.",
     image: "/images/hero-port-v5.jpg",
   },
   {
@@ -65,8 +65,8 @@ export default function IndustriesPage() {
             Programs that need brokerage and bonded handling
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
-            Customs brokerage, Bonded CFS staging, and forwarding applied against
-            customer SOPs — with import clearance visibility in the portal.
+            Customs brokerage, Bonded CFS, and forwarding for commercial and
+            government programs — including FMS, DoD, and ITAR-regulated cargo.
           </p>
         </div>
       </header>

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY } from "@/lib/content/company";
 
 export const metadata: Metadata = {
   title: "Facility",
   description:
-    "US Customs Bonded Facility · Bonded CFS at 500 Ocean Avenue, East Rockaway, NY.",
+    "U.S. Customs Bonded office and warehouse · Bonded CFS at 500 Ocean Avenue, East Rockaway, NY.",
 };
 
 export default function FacilityPage() {
@@ -13,7 +14,7 @@ export default function FacilityPage() {
     <article>
       <header className="hero-brand relative min-h-[26rem] overflow-hidden border-b border-white/10 md:min-h-[32rem]">
         <Image
-          src="/images/facility-warehouse.jpg"
+          src="/images/facility.png"
           alt=""
           fill
           priority
@@ -22,17 +23,17 @@ export default function FacilityPage() {
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(6,8,12,0.94)_0%,rgba(6,8,12,0.76)_48%,rgba(6,8,12,0.38)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.94)_0%,rgba(6,8,12,0.78)_48%,rgba(6,8,12,0.4)_100%)]"
           aria-hidden
         />
         <div className="absolute top-0 left-0 h-full w-1 bg-gold-dim" aria-hidden />
         <div className="relative mx-auto flex min-h-[26rem] max-w-7xl flex-col justify-end px-5 py-16 md:min-h-[32rem] md:justify-center md:px-8 md:py-24 lg:max-w-[40rem]">
-          <p className="section-label text-[#c4a86a]">US Customs Bonded Facility</p>
+          <p className="section-label text-[#c4a86a]">U.S. Customs Bonded Facility</p>
           <h1 className="hero-display mt-5 max-w-[18ch] text-[2.25rem] !text-white md:text-[3rem]">
             Bonded CFS at Ocean Avenue
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
-            A working container freight station under bond — staging and release
+            U.S. Customs Bonded office and warehouse — secured staging and release
             coordinated with ITC customs brokerage.
           </p>
         </div>
@@ -47,14 +48,17 @@ export default function FacilityPage() {
                   Import cargo is received under bond, held in bonded staging when
                   entry or exam status requires it, and released before outbound
                   trucking. Formal entry status and CFS events share the shipment ID
-                  visible in the client portal.
+                  visible in the client portal — with integrated real-time office and
+                  warehouse inventory tracking.
                 </p>
                 <dl className="mt-12 space-y-6">
                   {[
-                    ["Address", "500 Ocean Avenue, East Rockaway, NY 11518"],
-                    ["Type", "US Customs Bonded Facility · Bonded CFS"],
-                    ["Operations", "Bonded staging · cargo release · distribution"],
-                    ["Gateways", "JFK · Newark · NY metro"],
+                    ["Address", `${COMPANY.hq.line1}, ${COMPANY.hq.city}`],
+                    ["Type", COMPANY.credentials.bonded],
+                    ["Security", `${COMPANY.security.alarm} · ${COMPANY.security.cctv}`],
+                    ["Inventory", COMPANY.security.inventory],
+                    ["Visibility", COMPANY.military.visibility],
+                    ["Gateways", "JFK · Newark · Ports of New York"],
                   ].map(([k, v]) => (
                     <div key={k}>
                       <dt className="meta-label">{k}</dt>

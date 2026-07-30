@@ -5,7 +5,7 @@ import { SERVICES } from "@/lib/content/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Air freight, ocean freight, customs clearance & brokerage, Bonded CFS, and drayage.",
+    "Air (IATA/TSA IAC), ocean (FMC# 3887), customs brokerage, Bonded CFS, and truck/rail — 100% in-house from East Rockaway.",
 };
 
 export default function ServicesIndexPage() {
@@ -18,8 +18,9 @@ export default function ServicesIndexPage() {
             Import services
           </h1>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fog">
-            Brokerage, Bonded CFS, and freight — structured as dedicated service
-            lines, not a single undifferentiated offering.
+            Air, ocean, vessel and aircraft chartering, truck, and rail —
+            brokerage and Bonded CFS under one in-house East Rockaway desk. U.S.
+            and Europe freight connections.
           </p>
         </div>
       </header>

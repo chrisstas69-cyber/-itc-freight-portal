@@ -24,10 +24,12 @@ export default function LoginPage() {
       <div className="relative mx-auto flex min-h-dvh max-w-[72rem] flex-col lg:flex-row">
         <aside className="flex flex-col border-b border-line px-6 py-10 lg:w-[52%] lg:border-r lg:border-b-0 lg:px-12 lg:py-14">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="focus-ring">
-              <span className="text-[15px] font-semibold tracking-[0.12em] text-snow uppercase">
-                ITC Group
-              </span>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-[13px] text-fog transition-colors hover:text-snow focus-ring"
+            >
+              <span aria-hidden>←</span>
+              Back to website
             </Link>
             <span className="hidden border border-line px-2.5 py-1 text-[10px] tracking-[0.14em] text-mist uppercase sm:inline">
               Authorized access only
@@ -86,12 +88,21 @@ export default function LoginPage() {
             <p className="mt-6 text-center text-[11px] leading-relaxed text-mist">
               Need access?{" "}
               <Link
-                href="/#contact"
+                href="/contact"
                 className="text-steel-bright transition-colors hover:text-snow focus-ring"
               >
                 Contact the East Rockaway operations desk
               </Link>
               .
+            </p>
+            <p className="mt-4 text-center">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1.5 text-[12px] text-fog transition-colors hover:text-snow focus-ring"
+              >
+                <span aria-hidden>←</span>
+                Back to main site
+              </Link>
             </p>
           </div>
         </section>

@@ -321,3 +321,37 @@
 .hero-brand .section-label {
   color: #c4a86a;
 }
+
+/* Global Reach map — hide SVG labels on small screens */
+.global-reach-label,
+.global-reach-origin-label {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .global-reach-label,
+  .global-reach-origin-label {
+    display: block;
+  }
+}
+
+@keyframes global-reach-pulse {
+  0% {
+    opacity: 0.75;
+    transform: scale(0.85);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.global-reach-pulse {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: global-reach-pulse 2.4s ease-out infinite;
+}

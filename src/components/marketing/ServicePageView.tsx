@@ -71,7 +71,7 @@ export function ServicePageView({ service }: { service: ServicePage }) {
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(6,8,12,0.94)_0%,rgba(6,8,12,0.78)_46%,rgba(6,8,12,0.35)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.94)_0%,rgba(6,8,12,0.78)_48%,rgba(6,8,12,0.4)_100%)]"
           aria-hidden
         />
         <div className={cn("absolute top-0 left-0 h-full w-1", ACCENT_RAIL[service.accent])} aria-hidden />

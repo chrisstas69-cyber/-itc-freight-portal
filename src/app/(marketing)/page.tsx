@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { GlobalReach } from "@/components/marketing/GlobalReach";
 import { TrackingBar } from "@/components/marketing/TrackingBar";
+import {
+  COMPANY,
+  SECURITY_POINTS,
+  TRUST_CREDENTIALS,
+} from "@/lib/content/company";
 import { SERVICES } from "@/lib/content/services";
 
 export const metadata: Metadata = {
   title: "ITC Group Inc. | Freight Forwarding & Logistics",
+  description:
+    "Family-owned customs brokerage, U.S. Customs Bonded CFS, and multi-modal freight from East Rockaway / Ports of New York since 1984.",
 };
 
 export default function HomePage() {
@@ -26,15 +34,14 @@ export default function HomePage() {
           aria-hidden
         />
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:py-32">
-          <p className="section-label text-[#c4a86a]">
-            Ikaros Transport Corporation · Est. 1984
-          </p>
-          <h1 className="hero-display mt-5 max-w-[12ch] text-[2.75rem] text-white sm:text-[3.5rem] md:text-[4rem]">
-            Entry. Bond. Release.
+          <h1 className="hero-display max-w-[20ch] text-[1.75rem] font-semibold !text-[#c4a86a] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3rem]">
+            Ikaros Transport USA · Est. 1984
           </h1>
-          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
-            Customs brokerage, Bonded CFS, and freight under one East Rockaway
-            operations desk — with clearance visibility in the client portal.
+          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70 md:mt-5">
+            Family-owned since 1984. When you call, a real person picks up — not a
+            call center, not a bot. Your freight, handled personally from East
+            Rockaway through the Ports of New York — and door to door around the
+            world.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
@@ -73,7 +80,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Trust credentials — short chips, not paragraphs */}
       <section className="border-b border-line bg-ink">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 border-line lg:grid-cols-3 xl:grid-cols-6">
+          {TRUST_CREDENTIALS.map((item) => (
+            <div
+              key={item.label}
+              className="border-b border-line px-5 py-7 last:border-b-0 odd:border-r lg:border-r xl:border-b-0 xl:[&:nth-child(6)]:border-r-0 md:px-6 lg:[&:nth-child(3)]:border-r-0 xl:[&:nth-child(3)]:border-r"
+            >
+              <p className="meta-label">{item.label}</p>
+              <p className="mt-2 text-[15px] font-medium tracking-tight text-snow">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <GlobalReach />
+
+      <section className="border-b border-line bg-panel">
         <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-16">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
@@ -81,12 +107,15 @@ export default function HomePage() {
               <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.75rem]">
                 Capabilities across the import path
               </h2>
+              <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-mist">
+                {COMPANY.modes}. U.S. and Europe freight connections.
+              </p>
             </div>
             <Link
-              href="/services/customs-clearance"
+              href="/services"
               className="text-[13px] text-steel transition-colors hover:text-snow focus-ring"
             >
-              View customs clearance →
+              All services →
             </Link>
           </div>
           <div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
@@ -111,23 +140,68 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-panel">
-        <div className="mx-auto grid max-w-7xl sm:grid-cols-3">
-          {[
-            { label: "Customs brokerage", value: "U.S. formal entry" },
-            { label: "US Customs Bonded Facility", value: "Bonded CFS" },
-            { label: "Operating since", value: "1984" },
-          ].map((item, i) => (
-            <div
-              key={item.label}
-              className={`px-5 py-8 md:px-8 ${i > 0 ? "border-t border-line sm:border-t-0 sm:border-l" : ""}`}
+      {/* Company profile teaser */}
+      <section className="border-b border-line bg-ink">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-12 md:gap-12 md:px-8 md:py-20">
+          <div className="md:col-span-5">
+            <p className="section-label">Company</p>
+            <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.75rem]">
+              Family-owned. Ports of New York.
+            </h2>
+            <p className="mt-4 text-[14px] leading-relaxed text-fog">
+              Founded in {COMPANY.founded}, ITC Group runs brokerage, bonded
+              warehouse, and forwarding as a single East Rockaway desk —{" "}
+              {COMPANY.opsModel.toLowerCase()}.
+            </p>
+            <Link
+              href="/about"
+              className="mt-6 inline-flex text-[13px] text-steel hover:text-snow focus-ring"
             >
-              <p className="meta-label">{item.label}</p>
-              <p className="mt-2 text-[1.125rem] font-medium tracking-tight text-snow">
-                {item.value}
+              Company profile →
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 md:col-span-7">
+            <div className="border border-line bg-panel px-5 py-6 hairline-top">
+              <p className="meta-label">Licenses</p>
+              <ul className="mt-4 space-y-3 text-[13px] leading-relaxed text-fog">
+                <li>{COMPANY.credentials.iataTsa}</li>
+                <li>{COMPANY.credentials.fmc}</li>
+                <li>{COMPANY.credentials.bonded}</li>
+              </ul>
+            </div>
+            <div className="border border-line bg-panel px-5 py-6 hairline-top">
+              <p className="meta-label">Government programs</p>
+              <p className="mt-4 text-[13px] leading-relaxed text-fog">
+                {COMPANY.military.tenure}
+              </p>
+              <p className="mt-3 text-[13px] leading-relaxed text-mist">
+                {COMPANY.military.visibility}
               </p>
             </div>
-          ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Security — short blocks */}
+      <section className="border-b border-line bg-panel">
+        <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-16">
+          <p className="section-label">Security & control</p>
+          <h2 className="display-title mt-3 text-[1.375rem] md:text-[1.5rem]">
+            Bonded facility. Controlled cargo.
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {SECURITY_POINTS.map((point) => (
+              <div
+                key={point.title}
+                className="border border-line bg-ink/30 px-5 py-6 hairline-top"
+              >
+                <h3 className="text-[14px] font-medium text-snow">{point.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-mist">
+                  {point.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

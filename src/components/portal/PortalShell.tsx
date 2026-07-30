@@ -49,6 +49,13 @@ export function PortalSidebar() {
         })}
       </nav>
       <div className="border-t border-line p-5">
+        <Link
+          href="/"
+          className="mb-4 inline-flex items-center gap-1.5 text-[12px] text-fog transition-colors hover:text-snow focus-ring"
+        >
+          <span aria-hidden>←</span>
+          Back to website
+        </Link>
         <p className="meta-label">Operations desk</p>
         <p className="mt-2 text-[12px] leading-relaxed text-fog">
           Clearance · Bonded CFS · Documents
@@ -114,6 +121,12 @@ export function PortalTopbar() {
         </div>
 
         <div className="flex items-center gap-5">
+          <Link
+            href="/"
+            className="hidden text-[12px] text-fog transition-colors hover:text-snow sm:inline focus-ring"
+          >
+            ← Website
+          </Link>
           {user ? (
             <div className="hidden text-right sm:block">
               <p className="text-[13px] text-snow">{user.name}</p>
@@ -142,6 +155,13 @@ export function PortalTopbar() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="px-3 py-2.5 text-[13px] text-steel-bright hover:text-snow focus-ring"
+          >
+            ← Back to website
+          </Link>
         </nav>
       ) : null}
     </header>

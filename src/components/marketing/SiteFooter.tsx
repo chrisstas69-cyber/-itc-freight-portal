@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY } from "@/lib/content/company";
 import { SERVICES } from "@/lib/content/services";
 
 export function SiteFooter() {
@@ -20,13 +21,16 @@ export function SiteFooter() {
                 ITC <span className="text-gold">GRP</span>
               </p>
               <p className="mt-1 text-[12px] text-mist">
-                Ikaros Transport Corporation
+                {COMPANY.dba}
               </p>
             </div>
           </div>
           <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-fog">
-            Customs brokerage, US Customs Bonded Facility (Bonded CFS), and
-            multi-modal forwarding from East Rockaway since 1984.
+            {COMPANY.ownership} customs brokerage, U.S. Customs Bonded facility,
+            and multi-modal forwarding from East Rockaway since {COMPANY.founded}.
+          </p>
+          <p className="mt-3 max-w-sm text-[11px] leading-relaxed text-mist">
+            IATA / TSA Approved IAC · FMC# 3887 · U.S. Customs Bonded
           </p>
         </div>
 
