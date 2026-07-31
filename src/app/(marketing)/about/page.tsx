@@ -6,18 +6,16 @@ import { COMPANY, ENTITIES } from "@/lib/content/company";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "ITC Group USA — family-owned parent brand with divisions ITC International, JAV International, and Cargo Transport Logistics Inc. Customs brokerage, Bonded CFS, and door-to-door freight from East Rockaway since 1984.",
+    "ITC Group USA — a complete worldwide freight logistics company since 1984. One accountable desk and an agency network moving cargo door-to-door worldwide.",
 };
 
 const PROFILE_ROWS: [string, string][] = [
   ["Founded", String(COMPANY.founded)],
-  ["Ownership", "Family-owned and operated · worldwide logistics"],
   ["Parent", ENTITIES.parent.name],
   [
     "Divisions",
     ENTITIES.divisions.map((d) => d.name).join(" · "),
   ],
-  ["Headquarters", `${COMPANY.hq.line1}, ${COMPANY.hq.city}`],
   ["Footprint", COMPANY.footprint],
   ["Operations", COMPANY.opsModel],
   ["Modes", COMPANY.modes],
@@ -43,19 +41,19 @@ export default function AboutPage() {
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.94)_0%,rgba(6,8,12,0.78)_48%,rgba(6,8,12,0.4)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.78)_48%,rgba(0,0,0,0.4)_100%)]"
           aria-hidden
         />
-        <div className="absolute top-0 left-0 h-full w-1 bg-gold" aria-hidden />
+        <div className="absolute top-0 left-0 h-full w-1 bg-[#f0c040]" aria-hidden />
         <div className="relative mx-auto flex min-h-[26rem] max-w-7xl flex-col justify-end px-5 py-16 md:min-h-[32rem] md:justify-center md:px-8 md:py-24 lg:max-w-[42rem]">
-          <p className="section-label text-[#c4a86a]">About</p>
+          <p className="section-label text-[#f0c040]">About</p>
           <h1 className="hero-display mt-5 max-w-[18ch] text-[2.25rem] !text-white md:text-[3rem]">
             {ENTITIES.parent.name}
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70">
-            A family-owned worldwide freight logistics company — brokerage,
-            bonded facility, and door-to-door movement from East Rockaway through
-            the Ports of New York, and to markets across the globe.
+            A complete worldwide freight logistics company since {COMPANY.founded} —
+            one accountable desk and an agency network moving cargo door-to-door
+            around the world.
           </p>
         </div>
       </header>
@@ -77,25 +75,21 @@ export default function AboutPage() {
               <div className="p-7 md:p-10 lg:col-span-7 lg:p-12">
                 <p className="section-label">Company profile</p>
                 <h2 className="display-title mt-3 text-[1.375rem]">
-                  Family-owned. Worldwide reach.
+                  Worldwide logistics. One desk.
                 </h2>
                 <p className="mt-5 text-[15px] leading-relaxed text-fog">
-                  {ENTITIES.parent.name} is a family-owned and operated freight
-                  logistics company with a major worldwide footprint — moving cargo
-                  door to door while keeping clearance, bonded staging, and delivery
-                  under one accountable desk. Founded in {COMPANY.founded} and based
-                  at {COMPANY.hq.line1} in {COMPANY.hq.city}, we combine licensed U.S.
-                  customs brokerage, a U.S. Customs Bonded office and warehouse, and
-                  multi-modal forwarding — {COMPANY.opsModel.toLowerCase()}.
+                  {ENTITIES.parent.name} is a worldwide freight logistics provider
+                  with one accountable desk and an agency network moving cargo
+                  door-to-door around the world. Since {COMPANY.founded}, we have
+                  combined licensed U.S. customs brokerage, a U.S. Customs Bonded
+                  office and warehouse, and multi-modal forwarding — keeping
+                  clearance, bonded staging, and delivery coordinated under a single
+                  operational record.
                 </p>
                 <p className="mt-5 text-[15px] leading-relaxed text-fog">
-                  From the Ports of New York to partners across{" "}
-                  {COMPANY.footprint.toLowerCase()}, we move cargo by air, ocean,
-                  truck, and rail, and support vessel and aircraft chartering when
-                  programs require dedicated lift.
-                </p>
-                <p className="mt-5 text-[14px] leading-relaxed text-mist">
-                  Legal entity: {COMPANY.legalEntityLine}.
+                  We move cargo by air, ocean, truck, and rail worldwide, and
+                  support vessel and aircraft chartering when programs require
+                  dedicated lift. {COMPANY.opsModel}.
                 </p>
                 <dl className="mt-12 space-y-0 border border-line">
                   {PROFILE_ROWS.map(([k, v], i) => (
@@ -123,10 +117,13 @@ export default function AboutPage() {
             One parent. Three operating divisions.
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-fog">
-            {ENTITIES.parent.name} is the parent brand. Under it,{" "}
-            {ENTITIES.divisions.map((d) => d.name).join(", ").replace(/, ([^,]*)$/, ", and $1")}{" "}
-            operate as separate divisions — sharing the same East Rockaway desk,
-            bonded facility, and in-house execution model.
+            {ENTITIES.parent.name} is the lead public brand. Under it,{" "}
+            {ENTITIES.divisions
+              .map((d) => d.name)
+              .join(", ")
+              .replace(/, ([^,]*)$/, ", and $1")}{" "}
+            operate as separate divisions — sharing the same in-house desk, bonded
+            facility, and execution model.
           </p>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -165,7 +162,7 @@ export default function AboutPage() {
             <p className="meta-label">Entity marks</p>
             <Image
               src="/brand/itc-entities-sheet.png"
-              alt="ITC JAV, ITC GRP, and ITC CTL marks"
+              alt="ITC entity marks"
               width={216}
               height={104}
               className="mt-4 h-14 w-auto opacity-90"
@@ -252,7 +249,7 @@ export default function AboutPage() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex h-10 items-center bg-steel px-5 text-[13px] font-medium text-white hover:bg-steel-bright focus-ring"
+                  className="inline-flex h-10 items-center bg-[#f0c040] px-5 text-[13px] font-semibold text-black hover:bg-[#ffd45a] focus-ring"
                 >
                   Contact operations
                 </Link>

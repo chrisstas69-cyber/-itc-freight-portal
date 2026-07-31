@@ -21,19 +21,19 @@ type Destination = {
 const WIDTH = 980;
 const HEIGHT = 500;
 
-/** East Rockaway / Ports of New York */
-const ORIGIN: LonLat = [-73.75, 40.64];
+/** United States origin for worldwide route map */
+const ORIGIN: LonLat = [-95.7, 37.1];
 
 const DESTINATIONS: Destination[] = [
   {
-    id: "na-west",
-    label: "North America (West Coast)",
-    shortLabel: "N. America West Coast",
-    coords: [-122.42, 37.77],
-    bulge: -36,
-    labelDx: -12,
+    id: "canada",
+    label: "Canada",
+    shortLabel: "Canada",
+    coords: [-79.38, 43.65],
+    bulge: -28,
+    labelDx: 0,
     labelDy: -18,
-    anchor: "end",
+    anchor: "middle",
   },
   {
     id: "sa",
@@ -81,9 +81,19 @@ const DESTINATIONS: Destination[] = [
     shortLabel: "Australia",
     coords: [151.21, -33.87],
     bulge: 72,
-    labelDx: 0,
-    labelDy: 24,
-    anchor: "middle",
+    labelDx: 14,
+    labelDy: 8,
+    anchor: "start",
+  },
+  {
+    id: "nz",
+    label: "New Zealand",
+    shortLabel: "New Zealand",
+    coords: [174.76, -36.85],
+    bulge: 88,
+    labelDx: 12,
+    labelDy: 22,
+    anchor: "start",
   },
 ];
 
@@ -135,45 +145,41 @@ const routes = DESTINATIONS.map((dest) => {
   };
 });
 
-/** Compact origin badge — below-left of marker, clear of Europe */
+/** Compact origin badge — below-left of marker */
 const ORIGIN_LABEL = {
-  width: 148,
-  height: 36,
-  x: originPx[0] - 158,
-  y: originPx[1] + 20,
+  width: 132,
+  height: 28,
+  x: originPx[0] - 146,
+  y: originPx[1] + 18,
 };
 
 export function GlobalReach() {
   return (
-    <section className="border-b border-line bg-panel">
+    <section className="border-b border-[#1a1a1a] bg-black">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20 lg:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="display-title text-[1.5rem] tracking-[0.08em] uppercase md:text-[1.875rem]">
+          <h2 className="display-title text-[1.5rem] tracking-[0.08em] text-white uppercase md:text-[1.875rem]">
             Global Reach
           </h2>
-          <div className="mx-auto mt-3 h-1 w-14 bg-gold" aria-hidden />
-          <p className="mt-5 text-[14px] leading-relaxed text-fog md:text-[15px]">
-            We move freight door to door, anywhere in the world — with strong
-            connections through the Ports of New York.
+          <div className="mx-auto mt-3 h-1 w-14 bg-[#f0c040]" aria-hidden />
+          <p className="mt-5 text-[14px] leading-relaxed text-white/70 md:text-[15px]">
+            Door-to-door freight logistics across Australia, New Zealand, Asia,
+            Europe, the Middle East, Canada, and South America.
           </p>
         </div>
 
         <div className="relative mt-12 md:mt-14">
-          <div className="overflow-hidden border border-line bg-ink/25 px-2 py-4 md:px-4 md:py-6">
+          <div className="overflow-hidden border border-white/15 bg-black px-2 py-4 md:px-4 md:py-6">
             <svg
               viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
               className="mx-auto h-auto w-full max-w-5xl"
               role="img"
-              aria-label="Natural Earth world map with curved freight routes from Ports of New York / East Rockaway to North America West Coast, South America, Europe, Middle East, Asia, and Australia"
+              aria-label="World map with freight routes from the United States to Canada, South America, Europe, Middle East, Asia, Australia, and New Zealand"
             >
-              <rect
-                width={WIDTH}
-                height={HEIGHT}
-                className="fill-[color-mix(in_srgb,var(--color-panel)_70%,var(--color-ink))]"
-              />
+              <rect width={WIDTH} height={HEIGHT} className="fill-black" />
 
               <g
-                className="fill-[color-mix(in_srgb,var(--color-mist)_55%,var(--color-fog)_20%)] stroke-[color-mix(in_srgb,var(--color-panel)_80%,var(--color-mist))]"
+                className="fill-[#2a2a2a] stroke-[#3a3a3a]"
                 strokeWidth={0.35}
               >
                 {countryPaths.map((d, i) => (
@@ -184,11 +190,11 @@ export function GlobalReach() {
               {/* Curved route arcs */}
               <g
                 fill="none"
-                stroke="var(--color-gold)"
+                stroke="#f0c040"
                 strokeWidth={1.55}
                 strokeDasharray="5.5 4.5"
                 strokeLinecap="round"
-                opacity={0.88}
+                opacity={0.9}
               >
                 {routes.map((route) => (
                   <path key={`route-${route.id}`} d={route.d} />
@@ -202,20 +208,20 @@ export function GlobalReach() {
                     cx={route.point[0]}
                     cy={route.point[1]}
                     r={4.5}
-                    className="fill-gold"
+                    className="fill-[#f0c040]"
                   />
                   <circle
                     cx={route.point[0]}
                     cy={route.point[1]}
                     r={7.5}
-                    className="fill-none stroke-gold/45"
+                    className="fill-none stroke-[#f0c040]/45"
                     strokeWidth={1.1}
                   />
                   <text
                     x={route.point[0] + route.labelDx}
                     y={route.point[1] + route.labelDy}
                     textAnchor={route.anchor}
-                    className="global-reach-label fill-snow text-[10px] font-semibold tracking-[0.06em] uppercase"
+                    className="global-reach-label fill-white text-[10px] font-semibold tracking-[0.06em] uppercase"
                     style={{ fontFamily: "var(--font-sans)" }}
                   >
                     {route.label}
@@ -223,34 +229,34 @@ export function GlobalReach() {
                 </g>
               ))}
 
-              {/* Origin marker + below-left badge (clear of Europe) */}
+              {/* Origin marker + badge */}
               <g>
                 <circle
                   cx={originPx[0]}
                   cy={originPx[1]}
                   r={15}
-                  className="global-reach-pulse fill-none stroke-gold"
+                  className="global-reach-pulse fill-none stroke-[#f0c040]"
                   strokeWidth={1.4}
                 />
                 <circle
                   cx={originPx[0]}
                   cy={originPx[1]}
                   r={9}
-                  className="fill-none stroke-gold"
+                  className="fill-none stroke-[#f0c040]"
                   strokeWidth={2}
                 />
                 <circle
                   cx={originPx[0]}
                   cy={originPx[1]}
                   r={4.5}
-                  className="fill-gold"
+                  className="fill-[#f0c040]"
                 />
 
                 <g className="global-reach-origin-label">
                   <path
                     d={`M ${originPx[0] - 6} ${originPx[1] + 8} L ${ORIGIN_LABEL.x + ORIGIN_LABEL.width - 8} ${ORIGIN_LABEL.y}`}
                     fill="none"
-                    stroke="var(--color-gold)"
+                    stroke="#f0c040"
                     strokeWidth={1.1}
                   />
                   <rect
@@ -259,25 +265,16 @@ export function GlobalReach() {
                     width={ORIGIN_LABEL.width}
                     height={ORIGIN_LABEL.height}
                     rx={1}
-                    className="fill-gold"
+                    className="fill-[#f0c040]"
                   />
                   <text
                     x={ORIGIN_LABEL.x + ORIGIN_LABEL.width / 2}
-                    y={ORIGIN_LABEL.y + 14}
+                    y={ORIGIN_LABEL.y + 18}
                     textAnchor="middle"
-                    className="fill-[#0c1218] text-[9px] font-semibold tracking-[0.05em] uppercase"
+                    className="fill-black text-[9px] font-semibold tracking-[0.05em] uppercase"
                     style={{ fontFamily: "var(--font-sans)" }}
                   >
-                    Ports of New York
-                  </text>
-                  <text
-                    x={ORIGIN_LABEL.x + ORIGIN_LABEL.width / 2}
-                    y={ORIGIN_LABEL.y + 27}
-                    textAnchor="middle"
-                    className="fill-[#0c1218] text-[9px] font-semibold tracking-[0.05em] uppercase"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
-                    East Rockaway
+                    ITC Group USA
                   </text>
                 </g>
               </g>
@@ -285,17 +282,17 @@ export function GlobalReach() {
           </div>
 
           <div className="mt-8 md:hidden">
-            <p className="inline-flex bg-gold px-3 py-1.5 text-[10px] font-semibold tracking-[0.08em] text-[#0c1218] uppercase">
-              Ports of New York / East Rockaway
+            <p className="inline-flex bg-[#f0c040] px-3 py-1.5 text-[10px] font-semibold tracking-[0.08em] text-black uppercase">
+              ITC Group USA
             </p>
-            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-line pt-5">
+            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/15 pt-5">
               {DESTINATIONS.map((dest) => (
                 <li
                   key={dest.id}
-                  className="flex items-center gap-2 text-[12px] text-fog"
+                  className="flex items-center gap-2 text-[12px] text-white/75"
                 >
                   <span
-                    className="size-1.5 shrink-0 rounded-full bg-gold"
+                    className="size-1.5 shrink-0 rounded-full bg-[#f0c040]"
                     aria-hidden
                   />
                   {dest.shortLabel}

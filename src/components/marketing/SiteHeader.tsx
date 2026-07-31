@@ -44,7 +44,7 @@ export function SiteHeader() {
               ITC Group <span className="text-gold">USA</span>
             </span>
             <span className="mt-1 text-[10px] tracking-[0.14em] text-mist uppercase">
-              Est. 1984
+              Since 1984
             </span>
           </span>
         </Link>

@@ -66,7 +66,8 @@ export default function IndustriesPage() {
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
             Customs brokerage, Bonded CFS, and forwarding for commercial and
-            government programs — including FMS, DoD, and ITAR-regulated cargo.
+            government programs — including specialized Military Operations for
+            FMS, DoD, and ITAR-regulated cargo.
           </p>
         </div>
       </header>

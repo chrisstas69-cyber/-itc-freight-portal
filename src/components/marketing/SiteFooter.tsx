@@ -21,16 +21,14 @@ export function SiteFooter() {
                 ITC Group <span className="text-gold">USA</span>
               </p>
               <p className="mt-1 text-[12px] text-mist">
-                Parent brand · Est. {COMPANY.founded}
+                Worldwide logistics · Since {COMPANY.founded}
               </p>
             </div>
           </div>
           <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-fog">
-            {COMPANY.ownership} customs brokerage, U.S. Customs Bonded facility,
-            and multi-modal forwarding from East Rockaway since {COMPANY.founded}.
-          </p>
-          <p className="mt-3 max-w-sm text-[12px] leading-relaxed text-mist">
-            {COMPANY.legalEntityLine}
+            A complete worldwide freight logistics company since {COMPANY.founded} —
+            customs brokerage, U.S. Customs Bonded facility, and door-to-door
+            multi-modal forwarding.
           </p>
           <p className="mt-2 max-w-sm text-[11px] leading-relaxed text-mist">
             IATA / TSA Approved IAC · FMC# 3887 · U.S. Customs Bonded
@@ -104,7 +102,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {COMPANY.parentBrand}. All rights reserved.
           </p>
           <p className="text-[11px] text-mist">
-            Headquarters · {COMPANY.hq.line1}, {COMPANY.hq.city}
+            {COMPANY.hq.city}
           </p>
         </div>
       </div>

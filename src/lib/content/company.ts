@@ -5,15 +5,13 @@ export const COMPANY = {
   parentBrand: "ITC Group USA",
   legalName: "ITC Group USA",
   founded: 1984,
-  ownership: "Family-owned and operated",
+  positioning: "A complete worldwide freight logistics company since 1984",
   hq: {
-    line1: "500 Ocean Avenue",
     city: "East Rockaway, NY 11518",
-    region: "East Rockaway, NY · Ports of New York",
   },
-  footprint: "U.S. and Europe freight connections",
-  opsModel: "100% in-house operations — no subcontracting",
-  /** Legal entity line from company one-sheet */
+  footprint: "Worldwide door-to-door freight logistics",
+  opsModel: "One accountable desk with an agency network — 100% in-house operations, no subcontracting",
+  /** Kept for footer/legal microcopy only — not used in main narrative */
   legalEntityLine: "Ikaros Transport Corp, dba ITC International",
   credentials: {
     iataTsa: "IATA and TSA Approved Indirect Air Carrier (IAC)",
@@ -78,7 +76,7 @@ export const ENTITIES = {
 
 /** Compact credential chips for trust strips */
 export const TRUST_CREDENTIALS = [
-  { label: "Established", value: "1984" },
+  { label: "Since", value: "1984" },
   { label: "Operations", value: "100% in-house" },
   { label: "Air", value: "IATA · TSA IAC" },
   { label: "Ocean", value: "FMC# 3887" },

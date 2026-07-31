@@ -6,7 +6,7 @@ import { COMPANY } from "@/lib/content/company";
 export const metadata: Metadata = {
   title: "Facility",
   description:
-    "U.S. Customs Bonded office and warehouse · Bonded CFS at 500 Ocean Avenue, East Rockaway, NY.",
+    "U.S. Customs Bonded office and warehouse · Bonded CFS.",
 };
 
 const OPS_SECURITY = [
@@ -37,7 +37,7 @@ export default function FacilityPage() {
         <div className="relative mx-auto flex min-h-[26rem] max-w-7xl flex-col justify-end px-5 py-16 md:min-h-[32rem] md:justify-center md:px-8 md:py-24 lg:max-w-[40rem]">
           <p className="section-label text-[#c4a86a]">U.S. Customs Bonded Facility</p>
           <h1 className="hero-display mt-5 max-w-[18ch] text-[2.25rem] !text-white md:text-[3rem]">
-            Bonded CFS at Ocean Avenue
+            Bonded CFS
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
             U.S. Customs Bonded office and warehouse — secured staging and release
@@ -60,10 +60,10 @@ export default function FacilityPage() {
                 </p>
                 <dl className="mt-12 space-y-6">
                   {[
-                    ["Address", `${COMPANY.hq.line1}, ${COMPANY.hq.city}`],
+                    ["Location", COMPANY.hq.city],
                     ["Type", COMPANY.credentials.bonded],
                     ["Brokerage", "U.S. Customs Brokerage"],
-                    ["Gateways", "JFK · Newark · Ports of New York"],
+                    ["Gateways", "Any U.S. airport or port"],
                   ].map(([k, v]) => (
                     <div key={k}>
                       <dt className="meta-label">{k}</dt>

@@ -63,7 +63,7 @@ export default function LoginPage() {
           </div>
 
           <p className="mt-12 text-[11px] leading-relaxed text-mist lg:mt-10">
-            ITC Group USA · 500 Ocean Avenue, East Rockaway, NY 11518 · Founded
+            ITC Group USA · East Rockaway, NY 11518 · Since
             1984
           </p>
         </aside>
@@ -91,7 +91,7 @@ export default function LoginPage() {
                 href="/contact"
                 className="text-steel-bright transition-colors hover:text-snow focus-ring"
               >
-                Contact the East Rockaway operations desk
+                Contact operations
               </Link>
               .
             </p>

@@ -33,16 +33,16 @@ export const SERVICES: ServicePage[] = [
     navLabel: "Air Freight",
     homeLabel: "Air Freight",
     teaser:
-      "IATA and TSA approved air freight forwarder — sea/air flexibility through the Ports of New York.",
+      "IATA and TSA approved air freight — any airport or port in the U.S. or worldwide.",
     heroLine:
-      "IATA and TSA approved air freight with sea/air switching, aircraft chartering, and bonded CFS handoffs.",
+      "Air freight to any airport or port in the United States or worldwide — with sea/air flexibility and aircraft chartering.",
     overview:
-      "As an IATA air and TSA approved air freight forwarder, ITC Group books and controls air freight for programs that cannot wait on ocean schedules — medical devices, military support cargo, apparel samples, and other high-value or time-sensitive commodities. Ports of New York positioning offers extensive sea/air cargo service to and from the U.S. and Europe. We can switch shipping method from sea to air (or vice versa) immediately, without delay or additional fee. Aircraft chartering is available when dedicated lift is required. Air movements stay in-house and coordinate with formal entry and, when needed, bonded staging at our East Rockaway facility.",
+      "As an IATA and TSA approved air freight forwarder, ITC Group USA books and controls air freight for programs that cannot wait on ocean schedules — medical devices, military support cargo, apparel samples, and other high-value or time-sensitive commodities. We move cargo through any airport or port in the U.S. or worldwide. We can switch shipping method from sea to air (or vice versa) immediately, without delay or additional fee. Aircraft chartering is available when dedicated lift is required. Air movements stay in-house and coordinate with formal entry and, when needed, bonded CFS staging.",
     handles: [
       "Airport-to-airport and door-to-door air imports",
+      "Any airport or port in the U.S. or worldwide",
       "Immediate sea-to-air or air-to-sea method switching — without delay or additional fee",
       "Aircraft chartering available",
-      "Sea/air cargo service to and from the U.S. and Europe via Ports of New York",
       "Priority and standard allocations",
       "Temperature-aware handling where the commodity requires it",
       "Document control for AWB, commercial invoice, and packing list",
@@ -50,9 +50,9 @@ export const SERVICES: ServicePage[] = [
     ],
     credentials: [
       "IATA air and TSA approved air freight forwarder",
+      "Any airport or port in the U.S. or worldwide",
       "Sea/air switch without delay or additional fee",
       "Aircraft chartering available",
-      "Ports of New York · U.S. and Europe sea/air coverage",
       "100% in-house operations — no subcontracting",
       "Bonded CFS staging available after arrival",
     ],
@@ -67,24 +67,25 @@ export const SERVICES: ServicePage[] = [
     navLabel: "Ocean / Sea Freight",
     homeLabel: "Ocean Freight",
     teaser:
-      "FMC license number 3887 — U.S. and foreign flag carriers, MARAD compliance, vessel chartering.",
+      "Worldwide ocean operations under FMC license number 3887 — U.S. and foreign flag carriers, MARAD compliance, vessel chartering.",
     heroLine:
-      "Ocean freight under FMC license number 3887 — from origin load through U.S. entry and release.",
+      "Worldwide ocean freight under FMC license number 3887 — from origin load through U.S. entry and release.",
     overview:
-      "As a licensed and bonded Ocean Freight Forwarder (FMC license number 3887), we manage ocean import programs — FCL and coordinated container movements — across U.S. and Europe freight connections. We are licensed to contract with any U.S. and foreign flag carriers, maintaining MARAD compliance. Vessel chartering is available when programs require dedicated capacity. Cargo arriving Newark and other U.S. ports can move into bonded staging at our CFS when entry status requires hold before outbound dispatch.",
+      "As a licensed and bonded Ocean Freight Forwarder (FMC license number 3887), ITC Group USA manages worldwide ocean import and export programs — FCL and coordinated container movements. We are licensed to contract with any U.S. and foreign flag carriers, maintaining MARAD compliance. Vessel chartering is available when programs require dedicated capacity. Cargo arriving at U.S. ports can move into bonded staging at our CFS when entry status requires hold before outbound dispatch.",
     handles: [
-      "FCL ocean booking and documentation",
+      "Worldwide ocean booking and documentation",
+      "FCL and coordinated container programs",
       "FMC license number 3887",
       "Contracting with any U.S. and foreign flag carriers — MARAD compliance",
       "Vessel chartering available",
-      "U.S. and Europe freight connections",
       "ISF timing aligned to sailing and arrival",
       "Port arrival notices and exam coordination support",
       "Bonded CFS receiving after vessel discharge when required",
-      "Drayage from port to East Rockaway or consignee",
+      "Drayage from port to bonded facility or consignee",
     ],
     credentials: [
       "FMC license number 3887",
+      "Worldwide ocean operations",
       "Licensed to contract with any U.S. and foreign flag carriers, maintaining MARAD compliance",
       "Vessel chartering available",
       "Customs brokerage on the same operational record",
@@ -102,26 +103,30 @@ export const SERVICES: ServicePage[] = [
     navLabel: "Customs Clearance & Brokerage",
     homeLabel: "Customs Clearance",
     teaser:
-      "U.S. formal entry, ISF, exam response — including ITAR-aware government programs.",
+      "JAV International — licensed U.S. customs broker with remote location filing for shipments arriving anywhere in the United States.",
     heroLine:
-      "Licensed customs brokerage for accurate entry, controlled release, and regulated cargo.",
+      "Licensed U.S. customs brokerage with remote location filing — clearing shipments arriving anywhere in the United States.",
     overview:
-      "ITC Group is a licensed U.S. customs broker operating from a U.S. Customs Bonded office and warehouse. We prepare and file formal entry, transmit ISF, support HTS classification, and manage clearance through exam or hold — including documentation discipline for ITAR-regulated and Foreign Military Sales programs. When bonded staging is required, entry status drives release from our Bonded CFS. Execution stays 100% in-house.",
+      "JAV International is a licensed U.S. customs broker with remote location filing capability, clearing shipments arriving anywhere in the United States. We file entries, transmit ISF, work ACS systems, and deliver seamless clearance through to door — coordinated with bonded CFS staging when hold or exam status requires it. Execution stays under one accountable ITC Group USA desk.",
     handles: [
-      "Formal entry (7501) preparation and filing",
+      "File entries (formal entry / 7501) preparation and filing",
       "ISF / ABI transmission and timing",
+      "ACS system coordination",
+      "Remote location filing for arrivals anywhere in the United States",
       "HTS classification support against commercial documents",
       "Exam, hold, and CBP inquiry response",
-      "ITAR-aware handling for regulated government cargo",
+      "Seamless clearance through to door",
       "Coordination with Bonded CFS staging and cargo release",
       "Entry packets available in the client portal",
     ],
     credentials: [
-      "Licensed U.S. customs broker",
+      "JAV International — licensed U.S. customs broker",
+      "Remote location filing capability",
+      "Clearance for shipments arriving anywhere in the United States",
+      "File entries · ISF · ACS",
       "U.S. Customs Bonded office and warehouse",
-      "25+ years supporting FMS, DoD, and ITAR programs",
-      "Import clearance visibility in the client portal",
-      "Operating since 1984 · East Rockaway, NY",
+      "Seamless clearance to door",
+      "Operating since 1984",
     ],
     process: [
       {
@@ -134,7 +139,7 @@ export const SERVICES: ServicePage[] = [
         step: "02",
         title: "Entry & ISF",
         detail:
-          "Formal entry and ISF are prepared and transmitted to meet CBP timing requirements.",
+          "Formal entry and ISF are prepared and transmitted via ACS to meet CBP timing requirements.",
       },
       {
         step: "03",
@@ -144,9 +149,9 @@ export const SERVICES: ServicePage[] = [
       },
       {
         step: "04",
-        title: "Release handoff",
+        title: "Release to door",
         detail:
-          "Released cargo moves to outbound dispatch or remains in bonded staging until authorized.",
+          "Released cargo moves to outbound dispatch or remains in bonded staging until authorized — then seamless delivery to door.",
       },
     ],
     heroImage: "/images/services/customs-clearance.png",
@@ -162,13 +167,12 @@ export const SERVICES: ServicePage[] = [
     teaser:
       "U.S. Customs Bonded office and warehouse — UL alarm, 24-hour CCTV, live inventory.",
     heroLine:
-      "Bonded CFS at 500 Ocean Avenue — secured staging, release by entry status.",
+      "Bonded CFS — secured staging and release by entry status.",
     overview:
-      "Our headquarters operates as a U.S. Customs Bonded office and warehouse — a working Bonded CFS, not a sales office. The facility is protected by a UL-compliant alarm system and 24-hour CCTV, with integrated real-time office and warehouse inventory tracking. Import cargo can be received under bond, held in bonded staging, and released in coordination with customs brokerage. ILCS transfer capability with TCN / Multi-Pack TCN visibility supports government program handoffs.",
+      "ITC Group USA operates a U.S. Customs Bonded office and warehouse — a working Bonded CFS, not a sales office. The facility is protected by a UL-compliant alarm system and 24-hour CCTV, with integrated real-time office and warehouse inventory tracking. Import cargo can be received under bond, held in bonded staging, and released in coordination with customs brokerage.",
     handles: [
       "Bonded receiving and inventory control",
       "Bonded staging pending entry or exam release",
-      "ILCS transfer with TCN / Multi-Pack TCN visibility",
       "Cargo release coordination with brokerage status",
       "Break-bulk and CFS handling for import programs",
       "Outbound dispatch after authorized release",
@@ -177,7 +181,6 @@ export const SERVICES: ServicePage[] = [
       "U.S. Customs Bonded office and warehouse",
       "UL-compliant alarm · 24-hour CCTV",
       "Real-time office and warehouse inventory tracking",
-      "500 Ocean Avenue, East Rockaway, NY 11518",
       "Same desk as ITC customs brokerage",
     ],
     heroImage: "/images/services/cfs.png",
@@ -187,28 +190,29 @@ export const SERVICES: ServicePage[] = [
   },
   {
     slug: "drayage",
-    title: "Drayage / Domestic Truck & Rail",
-    navLabel: "Drayage / Domestic Truck & Rail",
-    homeLabel: "Drayage",
+    title: "Cargo Release / Inland Transport",
+    navLabel: "Cargo Release / Inland Transport",
+    homeLabel: "Inland Transport",
     teaser:
-      "Domestic truck and rail, port and airport dray, and metro delivery after release.",
+      "After customs release — pickup, trucking, rail, line haul, and last-mile delivery to dock or door nationwide.",
     heroLine:
-      "Domestic truck and rail movement that follows clearance — not a disconnected haul.",
+      "After customs release from a bonded facility or any U.S. port — nationwide inland transport to dock or door.",
     overview:
-      "After cargo clears or releases from bonded staging, ITC Group arranges airport and ocean-port drayage, domestic truck and rail, inland linehaul, and last-mile delivery to consignee receiving docks. Ground moves inherit the same shipment ID used for clearance and CFS events so status stays coherent in the portal — executed in-house from East Rockaway / Ports of New York.",
+      "After customs release from a bonded facility or any U.S. port, ITC Group USA arranges pickup, trucking, rail, line haul, and last-mile delivery to dock or door nationwide. Ground moves inherit the same shipment ID used for clearance and CFS events so status stays coherent in the portal.",
     handles: [
-      "Domestic truck and rail",
+      "Pickup after customs release from bonded facility or any U.S. port",
+      "Domestic trucking and rail",
+      "Line haul to regional and national destinations",
+      "Last-mile delivery to dock or door nationwide",
       "Airport and ocean terminal drayage",
-      "Bonded CFS outbound to regional DCs",
-      "Inland linehaul and metro last mile",
       "Temperature-aware trucking when specified",
       "POD capture against the shipment record",
     ],
     credentials: [
-      "Domestic truck and rail capability",
+      "Nationwide inland transport after customs release",
+      "Pickup · trucking · rail · line haul · last mile",
       "Integrated with brokerage and Bonded CFS release",
       "100% in-house operations — no subcontracting",
-      "NY metro and Northeast coverage",
       "Portal visibility for out-for-delivery and POD",
     ],
     heroImage: "/images/services/drayage.png",
@@ -226,7 +230,7 @@ export const SERVICES: ServicePage[] = [
     heroLine:
       "Specialized Military Operations for Foreign Military Sales, Department of Defense cargo, and ITAR-regulated movements.",
     overview:
-      "ITC Group's Specialized Military Operations division brings over 25 years of experience with the FMS (Foreign Military Sales) program. We provide military cargo import and export expertise, U.S. Department of State license and ITAR regulations compliance, ILCS data transfer for all FMS cargo by TCN and multi-pack TCNs, and Department of Defense cargo handling — coordinated with licensed customs brokerage and bonded CFS staging under one in-house desk.",
+      "ITC Group USA's Specialized Military Operations division brings over 25 years of experience with the FMS (Foreign Military Sales) program. We provide military cargo import and export expertise, U.S. Department of State license and ITAR regulations compliance, ILCS data transfer for all FMS cargo by TCN and multi-pack TCNs, and Department of Defense cargo handling — coordinated with licensed customs brokerage and bonded CFS staging under one in-house desk.",
     handles: [
       "Over 25 years of experience with the FMS (Foreign Military Sales) program",
       "Military cargo import and export expertise",

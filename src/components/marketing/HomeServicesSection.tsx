@@ -40,8 +40,8 @@ export function HomeServicesSection({ services }: HomeServicesSectionProps) {
               Capabilities across the import path
             </h2>
             <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-mist">
-              Air, ocean, customs, CFS, drayage, and specialized military
-              operations — under one in-house desk.
+              Air, ocean, customs, CFS, inland transport, and specialized military
+              operations — door-to-door worldwide under one desk.
             </p>
           </div>
           <Link

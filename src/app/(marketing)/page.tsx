@@ -12,48 +12,65 @@ import {
 import { SERVICES } from "@/lib/content/services";
 
 export const metadata: Metadata = {
-  title: "ITC Group USA | Freight Forwarding & Logistics",
+  title: "ITC Group USA | Worldwide Freight Logistics",
   description:
-    "Family-owned customs brokerage, U.S. Customs Bonded CFS, and multi-modal freight from East Rockaway / Ports of New York since 1984.",
+    "ITC Group USA — a complete worldwide freight logistics company since 1984. Customs brokerage, bonded CFS, and door-to-door multi-modal freight. IATA/TSA IAC · FMC# 3887.",
 };
 
 export default function HomePage() {
   return (
     <>
-      <section className="hero-brand relative overflow-hidden border-b border-white/10">
+      <section className="hero-brand relative overflow-hidden border-b border-white/10 bg-black">
         <Image
           src="/images/hero-port-v6.jpg"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[72%_42%]"
+          className="object-cover object-[72%_42%] opacity-55"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,12,0.94)_0%,rgba(6,8,12,0.78)_48%,rgba(6,8,12,0.4)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.82)_55%,rgba(0,0,0,0.92)_100%)]"
           aria-hidden
         />
-        <div className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:py-32">
-          <h1 className="hero-display max-w-[20ch] text-[1.75rem] font-semibold !text-[#c4a86a] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3rem]">
-            ITC Group USA · Est. 1984
-          </h1>
-          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/70 md:mt-5">
-            Family-owned since 1984. When you call, a real person picks up — not a
-            call center, not a bot. Your freight, handled personally from East
-            Rockaway through the Ports of New York — and door to door around the
-            world.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 py-24 text-center md:px-8 md:py-32 lg:py-36">
+          <div className="relative flex w-full max-w-3xl flex-col items-center">
+            <Image
+              src="/brand/itc-grp-mark.png"
+              alt=""
+              width={72}
+              height={104}
+              className="h-16 w-auto opacity-90 drop-shadow-[0_12px_28px_rgba(0,0,0,0.7)]"
+              priority
+            />
+
+            <h1 className="hero-display mt-6 max-w-[14ch] text-[2.35rem] font-semibold tracking-[0.02em] text-white sm:text-[3rem] md:text-[3.75rem] lg:text-[4.25rem]">
+              ITC Group{" "}
+              <span className="text-[#f0c040}">USA</span>
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-[1.05rem] font-medium leading-snug text-white sm:text-[1.25rem] md:text-[1.4rem]">
+              A complete worldwide freight logistics company since 1984.
+            </p>
+
+            <p className="mt-6 max-w-2xl border-t border-[#f0c040]/35 pt-6 text-[14px] leading-relaxed text-[#f0c040] sm:text-[15px] md:text-[16px]">
+              When you call, a real person answers — not a call center, not a
+              bot. Ready to handle your freight logistics needs personally,
+              door-to-door, around the world.
+            </p>
+          </div>
+
+          <div className="relative z-10 mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact#quote"
-              className="inline-flex h-11 items-center bg-[#4a7fa5] px-6 text-[13px] font-medium text-white transition-colors hover:bg-[#6a9fc0] focus-ring"
+              className="inline-flex h-11 items-center bg-[#f0c040] px-6 text-[13px] font-semibold text-black transition-colors hover:bg-[#ffd45a] focus-ring"
             >
               Request a quote
             </Link>
             <Link
               href="/login"
-              className="inline-flex h-11 items-center border border-white/25 px-5 text-[13px] text-white/85 transition-colors hover:border-white/45 hover:text-white focus-ring"
+              className="inline-flex h-11 items-center border border-white/40 px-5 text-[13px] text-white transition-colors hover:border-white hover:bg-white/5 focus-ring"
             >
               Client Portal
             </Link>
@@ -108,16 +125,16 @@ export default function HomePage() {
           <div className="md:col-span-5">
             <p className="section-label">Company</p>
             <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.75rem]">
-              Family-owned. Ports of New York.
+              Worldwide freight. One accountable desk.
             </h2>
             <p className="mt-4 text-[14px] leading-relaxed text-fog">
-              Founded in {COMPANY.founded}, {COMPANY.parentBrand} runs brokerage,
-              bonded warehouse, and forwarding as a single East Rockaway desk —{" "}
-              {COMPANY.opsModel.toLowerCase()}.
+              Since {COMPANY.founded}, {COMPANY.parentBrand} has moved cargo
+              door-to-door worldwide — brokerage, bonded staging, and forwarding
+              under one desk, backed by an agency network.
             </p>
             <Link
               href="/about"
-              className="mt-6 inline-flex text-[13px] text-steel hover:text-snow focus-ring"
+              className="mt-6 inline-flex text-[13px] text-gold hover:text-snow focus-ring"
             >
               Company profile →
             </Link>
