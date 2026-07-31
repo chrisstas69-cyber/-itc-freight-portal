@@ -16,84 +16,325 @@ type Destination = {
   labelDx: number;
   labelDy: number;
   anchor: "start" | "middle" | "end";
+  /** primary = labeled; secondary = city dots with lighter arcs */
+  tier?: "primary" | "secondary";
+  showLabel?: boolean;
 };
 
 const WIDTH = 980;
 const HEIGHT = 500;
 
-/** United States origin for worldwide route map */
-const ORIGIN: LonLat = [-95.7, 37.1];
+/** Hub near Northeast U.S. operations */
+const ORIGIN: LonLat = [-74.0, 40.7];
 
 const DESTINATIONS: Destination[] = [
+  // —— U.S. main cities ——
   {
-    id: "canada",
-    label: "Canada",
-    shortLabel: "Canada",
-    coords: [-79.38, 43.65],
-    bulge: -28,
-    labelDx: 0,
-    labelDy: -18,
-    anchor: "middle",
+    id: "us-la",
+    label: "Los Angeles",
+    shortLabel: "Los Angeles",
+    coords: [-118.24, 34.05],
+    bulge: -22,
+    labelDx: -10,
+    labelDy: 16,
+    anchor: "end",
+    tier: "secondary",
   },
   {
-    id: "sa",
-    label: "South America",
-    shortLabel: "South America",
+    id: "us-seattle",
+    label: "Seattle",
+    shortLabel: "Seattle",
+    coords: [-122.33, 47.61],
+    bulge: -34,
+    labelDx: -10,
+    labelDy: -12,
+    anchor: "end",
+    tier: "secondary",
+  },
+  {
+    id: "us-chicago",
+    label: "Chicago",
+    shortLabel: "Chicago",
+    coords: [-87.63, 41.88],
+    bulge: -14,
+    labelDx: -8,
+    labelDy: -12,
+    anchor: "end",
+    tier: "secondary",
+  },
+  {
+    id: "us-dallas",
+    label: "Dallas",
+    shortLabel: "Dallas",
+    coords: [-96.8, 32.78],
+    bulge: 18,
+    labelDx: 10,
+    labelDy: 14,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "us-houston",
+    label: "Houston",
+    shortLabel: "Houston",
+    coords: [-95.37, 29.76],
+    bulge: 24,
+    labelDx: 10,
+    labelDy: 16,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "us-miami",
+    label: "Miami",
+    shortLabel: "Miami",
+    coords: [-80.19, 25.76],
+    bulge: 20,
+    labelDx: 12,
+    labelDy: 14,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "us-atlanta",
+    label: "Atlanta",
+    shortLabel: "Atlanta",
+    coords: [-84.39, 33.75],
+    bulge: 12,
+    labelDx: -8,
+    labelDy: 14,
+    anchor: "end",
+    tier: "secondary",
+  },
+
+  // —— North America ——
+  {
+    id: "canada-toronto",
+    label: "Canada",
+    shortLabel: "Toronto",
+    coords: [-79.38, 43.65],
+    bulge: -26,
+    labelDx: 0,
+    labelDy: -16,
+    anchor: "middle",
+    tier: "primary",
+  },
+  {
+    id: "canada-vancouver",
+    label: "Vancouver",
+    shortLabel: "Vancouver",
+    coords: [-123.12, 49.28],
+    bulge: -40,
+    labelDx: -8,
+    labelDy: -14,
+    anchor: "end",
+    tier: "secondary",
+  },
+  {
+    id: "mexico-city",
+    label: "Mexico City",
+    shortLabel: "Mexico City",
+    coords: [-99.13, 19.43],
+    bulge: 28,
+    labelDx: -10,
+    labelDy: 16,
+    anchor: "end",
+    tier: "secondary",
+  },
+
+  // —— South America (expanded) ——
+  {
+    id: "sa-bogota",
+    label: "Bogotá",
+    shortLabel: "Bogotá",
+    coords: [-74.07, 4.71],
+    bulge: 36,
+    labelDx: -12,
+    labelDy: 4,
+    anchor: "end",
+    tier: "secondary",
+  },
+  {
+    id: "sa-lima",
+    label: "Lima",
+    shortLabel: "Lima",
+    coords: [-77.04, -12.05],
+    bulge: 44,
+    labelDx: -12,
+    labelDy: 12,
+    anchor: "end",
+    tier: "secondary",
+  },
+  {
+    id: "sa-santiago",
+    label: "Santiago",
+    shortLabel: "Santiago",
+    coords: [-70.67, -33.45],
+    bulge: 52,
+    labelDx: -12,
+    labelDy: 14,
+    anchor: "end",
+    tier: "secondary",
+  },
+  {
+    id: "sa-sao-paulo",
+    label: "São Paulo",
+    shortLabel: "São Paulo",
     coords: [-46.63, -23.55],
     bulge: 48,
     labelDx: 14,
-    labelDy: 20,
-    anchor: "start",
-  },
-  {
-    id: "eu",
-    label: "Europe",
-    shortLabel: "Europe",
-    coords: [2.35, 48.86],
-    bulge: -42,
-    labelDx: 14,
-    labelDy: -18,
-    anchor: "start",
-  },
-  {
-    id: "me",
-    label: "Middle East",
-    shortLabel: "Middle East",
-    coords: [55.27, 25.2],
-    bulge: -55,
-    labelDx: 12,
-    labelDy: 22,
-    anchor: "start",
-  },
-  {
-    id: "as",
-    label: "Asia",
-    shortLabel: "Asia",
-    coords: [121.47, 31.23],
-    bulge: -78,
-    labelDx: 0,
-    labelDy: -18,
-    anchor: "middle",
-  },
-  {
-    id: "au",
-    label: "Australia",
-    shortLabel: "Australia",
-    coords: [151.21, -33.87],
-    bulge: 72,
-    labelDx: 14,
     labelDy: 8,
     anchor: "start",
+    tier: "primary",
   },
   {
-    id: "nz",
+    id: "sa-rio",
+    label: "Rio de Janeiro",
+    shortLabel: "Rio de Janeiro",
+    coords: [-43.17, -22.91],
+    bulge: 42,
+    labelDx: 14,
+    labelDy: -10,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "sa-buenos-aires",
+    label: "Buenos Aires",
+    shortLabel: "Buenos Aires",
+    coords: [-58.38, -34.6],
+    bulge: 58,
+    labelDx: 14,
+    labelDy: 16,
+    anchor: "start",
+    tier: "primary",
+  },
+
+  // —— Europe / Middle East / Africa ——
+  {
+    id: "eu-london",
+    label: "Europe",
+    shortLabel: "London",
+    coords: [-0.13, 51.51],
+    bulge: -48,
+    labelDx: 0,
+    labelDy: -16,
+    anchor: "middle",
+    tier: "primary",
+  },
+  {
+    id: "eu-frankfurt",
+    label: "Frankfurt",
+    shortLabel: "Frankfurt",
+    coords: [8.68, 50.11],
+    bulge: -38,
+    labelDx: 12,
+    labelDy: 14,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "eu-milan",
+    label: "Milan",
+    shortLabel: "Milan",
+    coords: [9.19, 45.46],
+    bulge: -30,
+    labelDx: 12,
+    labelDy: 16,
+    anchor: "start",
+    tier: "secondary",
+    showLabel: false,
+  },
+  {
+    id: "me-dubai",
+    label: "Middle East",
+    shortLabel: "Dubai",
+    coords: [55.27, 25.2],
+    bulge: -58,
+    labelDx: 12,
+    labelDy: 18,
+    anchor: "start",
+    tier: "primary",
+  },
+  {
+    id: "af-johannesburg",
+    label: "Johannesburg",
+    shortLabel: "Johannesburg",
+    coords: [28.05, -26.2],
+    bulge: 62,
+    labelDx: 12,
+    labelDy: 14,
+    anchor: "start",
+    tier: "secondary",
+  },
+
+  // —— Asia / Pacific ——
+  {
+    id: "as-singapore",
+    label: "Asia",
+    shortLabel: "Singapore",
+    coords: [103.82, 1.35],
+    bulge: -70,
+    labelDx: 0,
+    labelDy: 18,
+    anchor: "middle",
+    tier: "primary",
+  },
+  {
+    id: "as-hong-kong",
+    label: "Hong Kong",
+    shortLabel: "Hong Kong",
+    coords: [114.17, 22.32],
+    bulge: -82,
+    labelDx: 10,
+    labelDy: -12,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "as-tokyo",
+    label: "Tokyo",
+    shortLabel: "Tokyo",
+    coords: [139.69, 35.69],
+    bulge: -88,
+    labelDx: 12,
+    labelDy: -10,
+    anchor: "start",
+    tier: "secondary",
+  },
+  {
+    id: "as-shanghai",
+    label: "Shanghai",
+    shortLabel: "Shanghai",
+    coords: [121.47, 31.23],
+    bulge: -76,
+    labelDx: 0,
+    labelDy: -16,
+    anchor: "middle",
+    tier: "secondary",
+    showLabel: false,
+  },
+  {
+    id: "au-sydney",
+    label: "Australia",
+    shortLabel: "Sydney",
+    coords: [151.21, -33.87],
+    bulge: 72,
+    labelDx: 12,
+    labelDy: 10,
+    anchor: "start",
+    tier: "primary",
+  },
+  {
+    id: "nz-auckland",
     label: "New Zealand",
-    shortLabel: "New Zealand",
+    shortLabel: "Auckland",
     coords: [174.76, -36.85],
     bulge: 88,
     labelDx: 12,
-    labelDy: 22,
+    labelDy: 20,
     anchor: "start",
+    tier: "primary",
   },
 ];
 
@@ -140,6 +381,8 @@ const routes = DESTINATIONS.map((dest) => {
   const point = projection(dest.coords) as [number, number];
   return {
     ...dest,
+    tier: dest.tier ?? "primary",
+    showLabel: dest.showLabel !== false,
     point,
     d: curvedRoute(originPx[0], originPx[1], point[0], point[1], dest.bulge),
   };
@@ -163,8 +406,8 @@ export function GlobalReach() {
           </h2>
           <div className="mx-auto mt-3 h-1 w-14 bg-[#f0c040]" aria-hidden />
           <p className="mt-5 text-[14px] leading-relaxed text-white/70 md:text-[15px]">
-            Door-to-door freight logistics across Australia, New Zealand, Asia,
-            Europe, the Middle East, Canada, and South America.
+            Door-to-door freight across U.S. gateways, South America, Europe,
+            the Middle East, Asia, Australia, and New Zealand.
           </p>
         </div>
 
@@ -174,7 +417,7 @@ export function GlobalReach() {
               viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
               className="mx-auto h-auto w-full max-w-5xl"
               role="img"
-              aria-label="World map with freight routes from the United States to Canada, South America, Europe, Middle East, Asia, Australia, and New Zealand"
+              aria-label="World map with freight routes from ITC Group USA to major U.S. cities, South America, Europe, Middle East, Asia, Australia, and New Zealand"
             >
               <rect width={WIDTH} height={HEIGHT} className="fill-black" />
 
@@ -187,17 +430,19 @@ export function GlobalReach() {
                 ))}
               </g>
 
-              {/* Curved route arcs */}
-              <g
-                fill="none"
-                stroke="#f0c040"
-                strokeWidth={1.55}
-                strokeDasharray="5.5 4.5"
-                strokeLinecap="round"
-                opacity={0.9}
-              >
+              {/* Curved route arcs — secondary lighter, primary stronger */}
+              <g fill="none" strokeLinecap="round">
                 {routes.map((route) => (
-                  <path key={`route-${route.id}`} d={route.d} />
+                  <path
+                    key={`route-${route.id}`}
+                    d={route.d}
+                    stroke="#f0c040"
+                    strokeWidth={route.tier === "primary" ? 1.55 : 1.1}
+                    strokeDasharray={
+                      route.tier === "primary" ? "5.5 4.5" : "3.5 4"
+                    }
+                    opacity={route.tier === "primary" ? 0.9 : 0.55}
+                  />
                 ))}
               </g>
 
@@ -207,25 +452,34 @@ export function GlobalReach() {
                   <circle
                     cx={route.point[0]}
                     cy={route.point[1]}
-                    r={4.5}
+                    r={route.tier === "primary" ? 4.5 : 3.2}
                     className="fill-[#f0c040]"
+                    opacity={route.tier === "primary" ? 1 : 0.85}
                   />
-                  <circle
-                    cx={route.point[0]}
-                    cy={route.point[1]}
-                    r={7.5}
-                    className="fill-none stroke-[#f0c040]/45"
-                    strokeWidth={1.1}
-                  />
-                  <text
-                    x={route.point[0] + route.labelDx}
-                    y={route.point[1] + route.labelDy}
-                    textAnchor={route.anchor}
-                    className="global-reach-label fill-white text-[10px] font-semibold tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
-                    {route.label}
-                  </text>
+                  {route.tier === "primary" ? (
+                    <circle
+                      cx={route.point[0]}
+                      cy={route.point[1]}
+                      r={7.5}
+                      className="fill-none stroke-[#f0c040]/45"
+                      strokeWidth={1.1}
+                    />
+                  ) : null}
+                  {route.showLabel ? (
+                    <text
+                      x={route.point[0] + route.labelDx}
+                      y={route.point[1] + route.labelDy}
+                      textAnchor={route.anchor}
+                      className={
+                        route.tier === "primary"
+                          ? "global-reach-label fill-white text-[10px] font-semibold tracking-[0.06em] uppercase"
+                          : "global-reach-label fill-white/75 text-[8px] font-medium tracking-[0.04em] uppercase"
+                      }
+                      style={{ fontFamily: "var(--font-sans)" }}
+                    >
+                      {route.label}
+                    </text>
+                  ) : null}
                 </g>
               ))}
 
@@ -281,27 +535,94 @@ export function GlobalReach() {
             </svg>
           </div>
 
-          <div className="mt-8 md:hidden">
-            <p className="inline-flex bg-[#f0c040] px-3 py-1.5 text-[10px] font-semibold tracking-[0.08em] text-black uppercase">
-              ITC Group USA
-            </p>
-            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/15 pt-5">
-              {DESTINATIONS.map((dest) => (
-                <li
-                  key={dest.id}
-                  className="flex items-center gap-2 text-[12px] text-white/75"
-                >
-                  <span
-                    className="size-1.5 shrink-0 rounded-full bg-[#f0c040]"
-                    aria-hidden
-                  />
-                  {dest.shortLabel}
-                </li>
-              ))}
-            </ul>
+          <div className="mt-8 space-y-6 md:mt-10">
+            <div className="hidden gap-8 md:grid md:grid-cols-3">
+              <RouteList
+                title="U.S. gateways"
+                items={[
+                  "New York",
+                  "Los Angeles",
+                  "Chicago",
+                  "Miami",
+                  "Houston",
+                  "Dallas",
+                  "Atlanta",
+                  "Seattle",
+                ]}
+              />
+              <RouteList
+                title="South America"
+                items={[
+                  "São Paulo",
+                  "Buenos Aires",
+                  "Santiago",
+                  "Lima",
+                  "Bogotá",
+                  "Rio de Janeiro",
+                ]}
+              />
+              <RouteList
+                title="Worldwide"
+                items={[
+                  "Toronto · Vancouver",
+                  "Mexico City",
+                  "London · Frankfurt",
+                  "Dubai",
+                  "Johannesburg",
+                  "Singapore · Hong Kong · Tokyo",
+                  "Sydney · Auckland",
+                ]}
+              />
+            </div>
+
+            <div className="md:hidden">
+              <p className="inline-flex bg-[#f0c040] px-3 py-1.5 text-[10px] font-semibold tracking-[0.08em] text-black uppercase">
+                ITC Group USA
+              </p>
+              <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/15 pt-5">
+                {DESTINATIONS.filter((d) => d.showLabel !== false).map(
+                  (dest) => (
+                    <li
+                      key={dest.id}
+                      className="flex items-center gap-2 text-[12px] text-white/75"
+                    >
+                      <span
+                        className="size-1.5 shrink-0 rounded-full bg-[#f0c040]"
+                        aria-hidden
+                      />
+                      {dest.shortLabel}
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function RouteList({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div>
+      <p className="text-[11px] font-semibold tracking-[0.1em] text-[#f0c040] uppercase">
+        {title}
+      </p>
+      <ul className="mt-3 space-y-2">
+        {items.map((item) => (
+          <li
+            key={item}
+            className="flex items-center gap-2 text-[12px] text-white/75"
+          >
+            <span
+              className="size-1.5 shrink-0 rounded-full bg-[#f0c040]"
+              aria-hidden
+            />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
