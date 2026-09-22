@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Legacy public tracking input.
+ * Homepage no longer uses a public lookup (portal sign-in only).
+ * Kept for a future upgrade when a real tracking backend exists.
+ */
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -49,7 +54,7 @@ export function TrackingBar({ variant = "default" }: TrackingBarProps) {
           hero && "border-[#4a7fa5] bg-[#4a7fa5] hover:border-[#6a9fc0] hover:bg-[#6a9fc0]",
         )}
       >
-        Track status
+        Continue to portal
       </Button>
     </form>
   );

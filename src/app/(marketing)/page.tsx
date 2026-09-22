@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { GlobalReach } from "@/components/marketing/GlobalReach";
 import { HomeServicesSection } from "@/components/marketing/HomeServicesSection";
-import { TrackingBar } from "@/components/marketing/TrackingBar";
 import {
   COMPANY,
   SECURITY_POINTS,
@@ -27,50 +26,56 @@ export default function HomePage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[72%_42%] opacity-55"
+          className="object-cover object-[72%_42%] opacity-50"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.82)_55%,rgba(0,0,0,0.92)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.86)_52%,rgba(0,0,0,0.94)_100%)]"
           aria-hidden
         />
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 py-24 text-center md:px-8 md:py-32 lg:py-36">
-          <div className="relative flex w-full max-w-3xl flex-col items-center">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 py-20 text-center sm:py-24 md:px-8 md:py-28 lg:py-32">
+          <div className="fade-rise relative flex w-full max-w-3xl flex-col items-center">
             <Image
               src="/brand/itc-grp-mark.png"
               alt=""
               width={72}
               height={104}
-              className="h-16 w-auto opacity-90 drop-shadow-[0_12px_28px_rgba(0,0,0,0.7)]"
+              className="h-14 w-auto opacity-95 drop-shadow-[0_12px_28px_rgba(0,0,0,0.7)] sm:h-16"
               priority
             />
 
-            <h1 className="hero-display mt-6 max-w-[14ch] text-[2.35rem] font-semibold tracking-[0.02em] text-white sm:text-[3rem] md:text-[3.75rem] lg:text-[4.25rem]">
+            <h1 className="hero-display mt-5 max-w-[14ch] text-[2.5rem] font-semibold tracking-[0.02em] text-white sm:mt-6 sm:text-[3.15rem] md:text-[3.85rem] lg:text-[4.35rem]">
               ITC Group{" "}
-              <span className="text-[#f0c040}">USA</span>
+              <span className="text-[#f0c040]">USA</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-[1.05rem] font-medium leading-snug text-white sm:text-[1.25rem] md:text-[1.4rem]">
+            <p className="mt-5 max-w-[36ch] text-[1.05rem] font-medium leading-snug text-white/95 sm:mt-6 sm:max-w-[40ch] sm:text-[1.25rem] md:text-[1.35rem]">
               A complete worldwide freight logistics company since 1984.
             </p>
 
-            <p className="mt-6 max-w-2xl border-t border-[#f0c040]/35 pt-6 text-[14px] leading-relaxed text-[#f0c040] sm:text-[15px] md:text-[16px]">
+            <p className="mt-5 max-w-[42ch] border-t border-[#f0c040]/40 pt-5 text-[14px] leading-relaxed text-[#f5d27a] sm:mt-6 sm:max-w-[48ch] sm:text-[15px] md:text-[16px]">
               When you call, a real person answers — not a call center, not a
               bot. Ready to handle your freight logistics needs personally,
               door-to-door, around the world.
             </p>
           </div>
 
-          <div className="relative z-10 mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="fade-rise-delay relative z-10 mt-9 flex w-full max-w-xl flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
             <Link
               href="/contact#quote"
-              className="inline-flex h-11 items-center bg-[#f0c040] px-6 text-[13px] font-semibold text-black transition-colors hover:bg-[#ffd45a] focus-ring"
+              className="cta-primary focus-ring"
             >
-              Request a quote
+              Request a Quote
+            </Link>
+            <Link
+              href="/contact"
+              className="cta-secondary-on-dark focus-ring"
+            >
+              Speak With a Logistics Specialist
             </Link>
             <Link
               href="/login"
-              className="inline-flex h-11 items-center border border-white/40 px-5 text-[13px] text-white transition-colors hover:border-white hover:bg-white/5 focus-ring"
+              className="inline-flex min-h-11 items-center justify-center px-3 text-[13px] text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-ring sm:ml-1"
             >
               Client Portal
             </Link>
@@ -78,36 +83,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Portal-oriented shipment access — no public tracking lookup */}
       <section className="border-b border-line bg-panel">
-        <div className="mx-auto max-w-7xl px-5 py-8 md:px-8 md:py-10">
-          <div className="grid gap-6 md:grid-cols-[14rem_1fr] md:items-end">
-            <div>
-              <p className="section-label">Track a shipment</p>
-              <p className="mt-2 text-[13px] text-mist">
-                Sign in required for status
+        <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-12">
+          <div className="grid gap-6 border border-line bg-ink/25 p-6 hairline-top md:grid-cols-[1fr_auto] md:items-center md:gap-10 md:p-8">
+            <div className="max-w-2xl">
+              <p className="section-label">Client Shipment Tracking</p>
+              <h2 className="display-title mt-3 text-[1.25rem] md:text-[1.4rem]">
+                Secure access for existing customers
+              </h2>
+              <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-fog">
+                Sign in to the Client Portal to securely review your shipment
+                activity. Public shipment lookup is not available on this site.
               </p>
             </div>
-            <div>
-              <TrackingBar />
-              <p className="mt-2 text-[12px] text-mist">
-                AWB, container, PRO, or ITC shipment ID — continues at Client Portal
-                login.
-              </p>
+            <div className="flex flex-col gap-2 sm:flex-row md:flex-col lg:flex-row">
+              <Link
+                href="/login"
+                className="inline-flex min-h-11 items-center justify-center border border-line bg-panel px-5 text-[13px] font-medium text-snow transition-colors hover:border-gold/50 hover:text-gold focus-ring"
+              >
+                Sign In to Client Portal
+              </Link>
+              <Link
+                href="/contact#quote"
+                className="inline-flex min-h-11 items-center justify-center px-4 text-[13px] text-mist underline-offset-4 transition-colors hover:text-snow hover:underline focus-ring"
+              >
+                Need a quote instead?
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Trust credentials — short chips, not paragraphs */}
-      <section className="border-b border-line bg-ink">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 border-line lg:grid-cols-3 xl:grid-cols-6">
+      <section className="border-b border-line bg-ink" aria-label="Credentials">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 border-line sm:grid-cols-3 xl:grid-cols-6">
           {TRUST_CREDENTIALS.map((item) => (
             <div
               key={item.label}
-              className="border-b border-line px-5 py-7 last:border-b-0 odd:border-r lg:border-r xl:border-b-0 xl:[&:nth-child(6)]:border-r-0 md:px-6 lg:[&:nth-child(3)]:border-r-0 xl:[&:nth-child(3)]:border-r"
+              className="border-b border-line px-5 py-6 odd:border-r sm:border-r sm:[&:nth-child(3)]:border-r-0 xl:border-b-0 xl:[&:nth-child(3)]:border-r xl:[&:nth-child(6)]:border-r-0 md:px-6 md:py-7"
             >
               <p className="meta-label">{item.label}</p>
-              <p className="mt-2 text-[15px] font-medium tracking-tight text-snow">
+              <p className="mt-2 text-[14px] font-medium tracking-tight text-snow md:text-[15px]">
                 {item.value}
               </p>
             </div>
@@ -121,26 +138,26 @@ export default function HomePage() {
 
       {/* Company profile teaser */}
       <section className="border-b border-line bg-ink">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-12 md:gap-12 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-12 md:gap-12 md:px-8 md:py-20 lg:py-24">
           <div className="md:col-span-5">
             <p className="section-label">Company</p>
             <h2 className="display-title mt-3 text-[1.5rem] md:text-[1.75rem]">
               Worldwide freight. One accountable desk.
             </h2>
-            <p className="mt-4 text-[14px] leading-relaxed text-fog">
+            <p className="mt-4 max-w-md text-[14px] leading-relaxed text-fog md:text-[15px]">
               Since {COMPANY.founded}, {COMPANY.parentBrand} has moved cargo
               door-to-door worldwide — brokerage, bonded staging, and forwarding
               under one desk, backed by an agency network.
             </p>
             <Link
               href="/about"
-              className="mt-6 inline-flex text-[13px] text-gold hover:text-snow focus-ring"
+              className="mt-6 inline-flex min-h-10 items-center text-[13px] text-gold transition-colors hover:text-snow focus-ring"
             >
               Company profile →
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 md:col-span-7">
-            <div className="border border-line bg-panel px-5 py-6 hairline-top">
+            <div className="border border-line bg-panel px-5 py-6 transition-colors hover:border-line-strong hairline-top md:px-6">
               <p className="meta-label">Licenses</p>
               <ul className="mt-4 space-y-3 text-[13px] leading-relaxed text-fog">
                 <li>{COMPANY.credentials.iataTsa}</li>
@@ -148,7 +165,7 @@ export default function HomePage() {
                 <li>{COMPANY.credentials.bonded}</li>
               </ul>
             </div>
-            <div className="border border-line bg-panel px-5 py-6 hairline-top">
+            <div className="border border-line bg-panel px-5 py-6 transition-colors hover:border-line-strong hairline-top md:px-6">
               <p className="meta-label">Government programs</p>
               <p className="mt-4 text-[13px] leading-relaxed text-fog">
                 {COMPANY.military.tenure}. {COMPANY.military.dod}.
@@ -163,7 +180,7 @@ export default function HomePage() {
 
       {/* Security — short blocks */}
       <section className="border-b border-line bg-panel">
-        <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-16">
+        <div className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-16 lg:py-20">
           <p className="section-label">Security & control</p>
           <h2 className="display-title mt-3 text-[1.375rem] md:text-[1.5rem]">
             Bonded facility. Controlled cargo.
@@ -172,14 +189,44 @@ export default function HomePage() {
             {SECURITY_POINTS.map((point) => (
               <div
                 key={point.title}
-                className="border border-line bg-ink/30 px-5 py-6 hairline-top"
+                className="border border-line bg-ink/30 px-5 py-6 transition-colors hover:border-line-strong hairline-top md:px-6"
               >
                 <h3 className="text-[14px] font-medium text-snow">{point.title}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-mist">
+                <p className="mt-2 text-[13px] leading-relaxed text-mist md:min-h-[4.5rem]">
                   {point.detail}
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final conversion band */}
+      <section className="border-b border-line bg-obsidian">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16">
+          <div className="max-w-xl">
+            <p className="section-label">Next step</p>
+            <h2 className="display-title mt-3 text-[1.35rem] md:text-[1.6rem]">
+              Ready to move cargo with ITC Group USA?
+            </h2>
+            <p className="mt-3 text-[14px] leading-relaxed text-fog">
+              Request a quote for your next program, or speak with the operations
+              desk about brokerage, bonded staging, and door-to-door freight.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link
+              href="/contact#quote"
+              className="cta-primary focus-ring"
+            >
+              Request a Quote
+            </Link>
+            <Link
+              href="/contact"
+              className="cta-secondary focus-ring"
+            >
+              Contact Operations
+            </Link>
           </div>
         </div>
       </section>

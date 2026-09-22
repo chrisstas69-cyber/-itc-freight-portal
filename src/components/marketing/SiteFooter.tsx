@@ -52,27 +52,27 @@ export function SiteFooter() {
           <p className="meta-label">Company</p>
           <ul className="mt-3 space-y-2 text-[13px] text-fog">
             <li>
-              <Link href="/about" className="hover:text-snow focus-ring">
+              <Link href="/about" className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/facility" className="hover:text-snow focus-ring">
+              <Link href="/facility" className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring">
                 Facility
               </Link>
             </li>
             <li>
-              <Link href="/industries" className="hover:text-snow focus-ring">
+              <Link href="/industries" className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring">
                 Industries
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-snow focus-ring">
+              <Link href="/contact" className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring">
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/login" className="hover:text-snow focus-ring">
+              <Link href="/login" className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring">
                 Client Portal
               </Link>
             </li>
@@ -80,13 +80,28 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-3">
-          <p className="meta-label">Services</p>
+          <p className="meta-label">Get started</p>
+          <div className="mt-4 flex flex-col gap-2">
+            <Link
+              href="/contact#quote"
+              className="cta-primary focus-ring"
+            >
+              Request a Quote
+            </Link>
+            <Link
+              href="/login"
+              className="cta-secondary focus-ring"
+            >
+              Client Portal
+            </Link>
+          </div>
+          <p className="meta-label mt-8">Services</p>
           <ul className="mt-3 space-y-2 text-[13px] text-fog">
             {SERVICES.map((s) => (
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="hover:text-snow focus-ring"
+                  className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring"
                 >
                   {s.navLabel}
                 </Link>

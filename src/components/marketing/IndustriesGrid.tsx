@@ -50,7 +50,7 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
                   alt=""
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-cover transition-transform duration-500 motion-safe-zoom group-hover:scale-[1.03]"
                   aria-hidden
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-panel via-panel/40 to-black/20" />
@@ -167,7 +167,7 @@ function IndustryOverviewModal({
           <button
             type="button"
             onClick={onClose}
-            className="mt-1 inline-flex h-8 w-8 items-center justify-center border border-line text-[16px] text-fog hover:text-snow focus-ring"
+            className="mt-1 inline-flex min-h-10 min-w-10 items-center justify-center border border-line text-[16px] text-fog transition-colors hover:text-snow focus-ring"
             aria-label="Close"
           >
             ×
@@ -248,7 +248,7 @@ function IndustryOverviewModal({
           <button
             type="button"
             onClick={onClose}
-            className="text-[13px] text-fog hover:text-snow focus-ring"
+            className="inline-flex min-h-10 items-center px-2 text-[13px] text-fog transition-colors hover:text-snow focus-ring"
           >
             Close
           </button>
@@ -256,7 +256,7 @@ function IndustryOverviewModal({
             {industry.relatedHref ? (
               <Link
                 href={industry.relatedHref}
-                className="inline-flex h-10 items-center border border-line px-5 text-[13px] text-fog hover:text-snow focus-ring"
+                className="cta-secondary focus-ring"
                 onClick={onClose}
               >
                 {industry.relatedLabel ?? "Related service"}
@@ -264,7 +264,7 @@ function IndustryOverviewModal({
             ) : null}
             <Link
               href="/contact#quote"
-              className="inline-flex h-10 items-center bg-[#f0c040] px-5 text-[13px] font-semibold text-black hover:bg-[#ffd45a] focus-ring"
+              className="cta-primary focus-ring"
               onClick={onClose}
             >
               Discuss your program

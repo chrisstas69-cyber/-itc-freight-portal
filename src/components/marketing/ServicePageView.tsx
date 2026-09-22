@@ -95,7 +95,7 @@ export function ServicePageView({ service }: { service: ServicePage }) {
           <div className="mt-10">
             <Link
               href="/contact#quote"
-              className="inline-flex h-11 items-center bg-[#4a7fa5] px-6 text-[13px] font-medium text-white transition-colors hover:bg-[#6a9fc0] focus-ring"
+              className="cta-primary focus-ring"
             >
               Request a quote
             </Link>
@@ -235,13 +235,13 @@ export function ServicePageView({ service }: { service: ServicePage }) {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact#quote"
-              className="inline-flex h-11 items-center bg-steel px-6 text-[13px] font-medium text-white hover:bg-steel-bright focus-ring"
+              className="cta-primary focus-ring"
             >
               Request a quote
             </Link>
             <Link
               href="/services"
-              className="inline-flex h-11 items-center border border-line px-5 text-[13px] text-fog hover:text-snow focus-ring"
+              className="cta-secondary focus-ring"
             >
               All services
             </Link>

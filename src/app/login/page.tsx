@@ -26,7 +26,7 @@ export default function LoginPage() {
           <div className="flex items-center justify-between gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-[13px] text-fog transition-colors hover:text-snow focus-ring"
+              className="inline-flex min-h-10 items-center gap-2 text-[13px] text-fog transition-colors hover:text-snow focus-ring"
             >
               <span aria-hidden>←</span>
               Back to website
@@ -89,7 +89,7 @@ export default function LoginPage() {
               Need access?{" "}
               <Link
                 href="/contact"
-                className="text-steel-bright transition-colors hover:text-snow focus-ring"
+                className="inline-flex min-h-10 items-center text-steel-bright transition-colors hover:text-snow focus-ring"
               >
                 Contact operations
               </Link>
@@ -98,7 +98,7 @@ export default function LoginPage() {
             <p className="mt-4 text-center">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-[12px] text-fog transition-colors hover:text-snow focus-ring"
+                className="inline-flex min-h-10 items-center gap-1.5 text-[12px] text-fog transition-colors hover:text-snow focus-ring"
               >
                 <span aria-hidden>←</span>
                 Back to main site

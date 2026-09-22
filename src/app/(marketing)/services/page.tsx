@@ -57,7 +57,7 @@ export default function ServicesIndexPage() {
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="grid gap-2 py-7 transition-colors hover:bg-panel/40 focus-ring md:grid-cols-12 md:items-baseline md:gap-8"
+              className="grid gap-2 py-7 transition-colors hover:bg-panel/40 focus-ring md:grid-cols-12 md:items-baseline md:gap-8 md:py-8"
             >
               <h2 className="text-[1.125rem] font-medium text-snow md:col-span-4">
                 {service.homeLabel}

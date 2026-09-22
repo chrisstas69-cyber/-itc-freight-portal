@@ -78,8 +78,8 @@ export function ThemeToggle({ variant = "marketing" }: { variant?: "marketing" |
       onClick={toggle}
       className={
         hero
-          ? "inline-flex h-8 items-center gap-2 border border-white/25 px-2.5 text-[10px] font-medium tracking-[0.12em] text-white/75 uppercase transition-colors hover:border-white/45 hover:text-white focus-ring"
-          : "inline-flex h-8 items-center gap-2 border border-line px-2.5 text-[10px] font-medium tracking-[0.12em] text-fog uppercase transition-colors hover:border-line-strong hover:text-snow focus-ring"
+          ? "inline-flex min-h-10 items-center gap-2 border border-white/25 px-2.5 text-[10px] font-medium tracking-[0.12em] text-white/75 uppercase transition-colors hover:border-white/45 hover:text-white focus-ring"
+          : "inline-flex min-h-10 items-center gap-2 border border-line px-2.5 text-[10px] font-medium tracking-[0.12em] text-fog uppercase transition-colors hover:border-line-strong hover:text-snow focus-ring"
       }
       aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
       title={isLight ? "Dark mode" : "Light mode"}

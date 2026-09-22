@@ -243,13 +243,13 @@ export default function AboutPage() {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href="/industries"
-                  className="inline-flex h-10 items-center border border-line px-5 text-[13px] text-fog hover:text-snow focus-ring"
+                  className="cta-secondary focus-ring"
                 >
                   Industries
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex h-10 items-center bg-[#f0c040] px-5 text-[13px] font-semibold text-black hover:bg-[#ffd45a] focus-ring"
+                  className="cta-primary focus-ring"
                 >
                   Contact operations
                 </Link>

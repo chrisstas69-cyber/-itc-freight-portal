@@ -73,7 +73,7 @@ export default function FacilityPage() {
                 </dl>
                 <Link
                   href="/services/cfs"
-                  className="mt-12 inline-flex text-[13px] text-steel hover:text-snow focus-ring"
+                  className="mt-12 inline-flex min-h-10 items-center text-[13px] text-gold transition-colors hover:text-snow focus-ring"
                 >
                   CFS service details →
                 </Link>

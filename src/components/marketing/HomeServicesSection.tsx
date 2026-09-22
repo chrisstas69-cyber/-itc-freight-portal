@@ -46,7 +46,7 @@ export function HomeServicesSection({ services }: HomeServicesSectionProps) {
           </div>
           <Link
             href="/services"
-            className="text-[13px] text-steel transition-colors hover:text-snow focus-ring"
+            className="inline-flex min-h-10 items-center text-[13px] text-gold transition-colors hover:text-snow focus-ring"
           >
             All services →
           </Link>
@@ -58,15 +58,15 @@ export function HomeServicesSection({ services }: HomeServicesSectionProps) {
               key={service.slug}
               type="button"
               onClick={() => setActiveSlug(service.slug)}
-              className="group flex flex-col bg-panel p-5 text-left transition-colors hover:bg-panel-elevated focus-ring hairline-top"
+              className="group flex min-h-[11.5rem] flex-col bg-panel p-5 text-left transition-colors hover:bg-panel-elevated focus-ring hairline-top sm:min-h-[13rem] md:p-6"
             >
-              <h3 className="text-[14px] font-medium tracking-tight text-snow group-hover:text-gold">
+              <h3 className="text-[14px] font-medium tracking-tight text-snow transition-colors group-hover:text-gold">
                 {service.homeLabel}
               </h3>
-              <p className="mt-2 flex-1 text-[12px] leading-relaxed text-mist">
+              <p className="mt-2 flex-1 text-[12px] leading-relaxed text-mist md:text-[13px]">
                 {service.teaser}
               </p>
-              <span className="mt-4 text-[11px] tracking-wide text-steel uppercase">
+              <span className="mt-4 text-[11px] tracking-wide text-steel uppercase transition-colors group-hover:text-gold">
                 Overview
               </span>
             </button>
@@ -78,7 +78,7 @@ export function HomeServicesSection({ services }: HomeServicesSectionProps) {
             key={service.slug}
             type="button"
             onClick={() => setActiveSlug(service.slug)}
-            className="mt-px flex w-full flex-col gap-4 border border-t-0 border-line bg-obsidian px-6 py-8 text-left transition-colors hover:bg-panel focus-ring hairline-top md:flex-row md:items-end md:justify-between md:px-8 md:py-10"
+            className="mt-px flex w-full flex-col gap-4 border border-t-0 border-line bg-obsidian px-6 py-8 text-left transition-colors hover:border-gold/30 hover:bg-panel focus-ring hairline-top md:flex-row md:items-end md:justify-between md:px-8 md:py-10"
           >
             <div className="max-w-3xl">
               <p className="section-label text-gold">Specialized division</p>
@@ -159,7 +159,7 @@ function ServiceOverviewModal({
           <button
             type="button"
             onClick={onClose}
-            className="mt-1 inline-flex h-8 w-8 items-center justify-center border border-line text-[16px] text-fog hover:text-snow focus-ring"
+            className="mt-1 inline-flex min-h-10 min-w-10 items-center justify-center border border-line text-[16px] text-fog transition-colors hover:text-snow focus-ring"
             aria-label="Close"
           >
             ×
@@ -217,13 +217,13 @@ function ServiceOverviewModal({
           <button
             type="button"
             onClick={onClose}
-            className="text-[13px] text-fog hover:text-snow focus-ring"
+            className="inline-flex min-h-10 items-center px-2 text-[13px] text-fog transition-colors hover:text-snow focus-ring"
           >
             Close
           </button>
           <Link
             href={`/services/${service.slug}`}
-            className="inline-flex h-10 items-center bg-steel px-5 text-[13px] font-medium text-white hover:bg-steel-bright focus-ring"
+            className="cta-primary focus-ring"
             onClick={onClose}
           >
             View full page

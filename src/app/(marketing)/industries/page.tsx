@@ -47,7 +47,7 @@ export default function IndustriesPage() {
           <div className="mt-16 flex justify-start">
             <Link
               href="/contact#quote"
-              className="inline-flex h-11 items-center bg-[#f0c040] px-6 text-[13px] font-semibold text-black hover:bg-[#ffd45a] focus-ring"
+              className="cta-primary focus-ring"
             >
               Discuss your program
             </Link>

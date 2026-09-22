@@ -89,33 +89,59 @@ export default function ContactPage() {
           </div>
 
           <div id="quote" className="border border-line bg-panel p-7 md:p-10">
-            <h2 className="display-title text-[1.375rem]">Request a quote</h2>
+            <h2 className="display-title text-[1.375rem]">Request a Quote</h2>
             <p className="mt-4 text-[14px] leading-relaxed text-fog">
               Origin, destination, mode, commodity, pieces or weight, and target
               ETA. Quotes can include formal entry, bonded staging, and delivery.
             </p>
-            <form className="mt-8 grid gap-4">
-              <input
-                type="email"
-                required
-                placeholder="Work email"
-                className="h-11 border border-line bg-ink/40 px-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
-              />
-              <input
-                type="text"
-                required
-                placeholder="Origin → Destination"
-                className="h-11 border border-line bg-ink/40 px-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
-              />
-              <textarea
-                required
-                rows={5}
-                placeholder="Commodity, pieces/weight, Incoterms, target ETA"
-                className="border border-line bg-ink/40 px-3 py-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
-              />
-              <Button type="submit" className="mt-2 w-fit" size="md">
+            <form className="mt-8 grid gap-4" noValidate>
+              <div>
+                <label htmlFor="quote-email" className="meta-label">
+                  Work email
+                </label>
+                <input
+                  id="quote-email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  placeholder="name@company.com"
+                  className="mt-2 h-11 w-full border border-line bg-ink/40 px-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
+                />
+              </div>
+              <div>
+                <label htmlFor="quote-lane" className="meta-label">
+                  Origin → Destination
+                </label>
+                <input
+                  id="quote-lane"
+                  name="lane"
+                  type="text"
+                  required
+                  placeholder="Origin → Destination"
+                  className="mt-2 h-11 w-full border border-line bg-ink/40 px-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
+                />
+              </div>
+              <div>
+                <label htmlFor="quote-details" className="meta-label">
+                  Shipment details
+                </label>
+                <textarea
+                  id="quote-details"
+                  name="details"
+                  required
+                  rows={5}
+                  placeholder="Commodity, pieces/weight, Incoterms, target ETA"
+                  className="mt-2 w-full border border-line bg-ink/40 px-3 py-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
+                />
+              </div>
+              <Button type="submit" variant="quote" className="mt-2 w-fit" size="md">
                 Submit quote request
               </Button>
+              <p className="text-[12px] leading-relaxed text-mist">
+                This form collects quote details for follow-up. It does not create
+                a live booking or tracking record.
+              </p>
             </form>
           </div>
         </div>

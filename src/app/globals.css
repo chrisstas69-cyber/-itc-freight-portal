@@ -102,7 +102,79 @@
   }
 
   .focus-ring:focus-visible {
-    outline: 1px solid var(--color-steel-bright);
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  /* Shared marketing CTAs — visual consistency only */
+  .cta-primary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    padding-inline: 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #0c1218;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+
+  .cta-primary:hover {
+    background: #e8b84a;
+  }
+
+  .cta-secondary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-line);
+    padding-inline: 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-fog);
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+
+  .cta-secondary:hover {
+    border-color: var(--color-line-strong);
+    color: var(--color-snow);
+  }
+
+  .cta-secondary-on-dark {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding-inline: 1.25rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+
+  .cta-secondary-on-dark:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    background: var(--color-gold);
+    color: #0c1218;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+    outline: 2px solid var(--color-snow);
     outline-offset: 2px;
   }
 
@@ -323,35 +395,101 @@
 }
 
 /* Global Reach map — hide SVG labels on small screens */
-.global-reach-label,
-.global-reach-origin-label {
+.global-reach-label {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .global-reach-label,
-  .global-reach-origin-label {
+  .global-reach-label {
     display: block;
   }
 }
 
-@keyframes global-reach-pulse {
+@keyframes global-reach-radar {
   0% {
-    opacity: 0.75;
-    transform: scale(0.85);
+    opacity: 0.55;
+    transform: scale(0.55);
   }
   70% {
     opacity: 0;
-    transform: scale(1.35);
+    transform: scale(1.55);
   }
   100% {
     opacity: 0;
-    transform: scale(1.35);
+    transform: scale(1.55);
   }
 }
 
-.global-reach-pulse {
+@keyframes global-reach-ping {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes global-reach-flow {
+  to {
+    stroke-dashoffset: -280;
+  }
+}
+
+.global-reach-radar {
   transform-origin: center;
   transform-box: fill-box;
-  animation: global-reach-pulse 2.4s ease-out infinite;
+  animation: global-reach-radar 2.8s ease-out infinite;
+  will-change: transform, opacity;
+}
+
+.global-reach-radar-delay {
+  animation-delay: 1.4s;
+}
+
+.global-reach-ping {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: global-reach-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.global-reach-flow {
+  animation-name: global-reach-flow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: stroke-dashoffset;
+}
+
+.global-reach-hairline-amber {
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.4));
+}
+
+.global-reach-hairline-cyan {
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.35));
+}
+
+.global-reach-plane {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .global-reach-radar,
+  .global-reach-radar-delay,
+  .global-reach-ping,
+  .global-reach-flow {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-safe-zoom {
+    transition: none !important;
+    transform: none !important;
+  }
 }

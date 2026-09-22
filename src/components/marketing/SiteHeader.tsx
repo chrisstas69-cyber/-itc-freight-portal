@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useId, useRef, useState } from "react";
 import { ThemeToggle } from "@/components/marketing/MarketingTheme";
 import { SERVICES } from "@/lib/content/services";
 import { cn } from "@/lib/utils";
@@ -15,28 +16,59 @@ const NAV = [
 ];
 
 export function SiteHeader() {
-  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const mobilePanelId = useId();
+  const servicesMenuId = useId();
 
   useEffect(() => {
     function onDoc(e: MouseEvent) {
-      if (!menuRef.current?.contains(e.target as Node)) setOpen(false);
+      if (!menuRef.current?.contains(e.target as Node)) setServicesOpen(false);
     }
     document.addEventListener("mousedown", onDoc);
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
 
+  useEffect(() => {
+    setMobileOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setServicesOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [servicesOpen]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-panel/95 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 md:h-[4.25rem] md:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-3 focus-ring">
           <Image
             src="/brand/itc-grp-mark.png"
             alt="ITC Group USA"
             width={56}
             height={80}
-            className="h-11 w-auto"
+            className="h-10 w-auto md:h-11"
             priority
           />
           <span className="hidden flex-col leading-none sm:flex">
@@ -49,30 +81,38 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
           <div className="relative" ref={menuRef}>
             <button
               type="button"
               className={cn(
-                "inline-flex h-9 items-center gap-1.5 px-3 text-[13px] transition-colors focus-ring",
-                open ? "text-snow" : "text-fog hover:text-snow",
+                "inline-flex min-h-10 items-center gap-1.5 px-3 text-[13px] transition-colors focus-ring",
+                servicesOpen || pathname.startsWith("/services")
+                  ? "text-snow"
+                  : "text-fog hover:text-snow",
               )}
-              aria-expanded={open}
+              aria-expanded={servicesOpen}
               aria-haspopup="true"
-              onClick={() => setOpen((v) => !v)}
+              aria-controls={servicesMenuId}
+              onClick={() => setServicesOpen((v) => !v)}
             >
               Services
               <span className="text-[10px] text-mist" aria-hidden>
                 ▾
               </span>
             </button>
-            {open ? (
-              <div className="absolute top-full left-0 z-50 mt-1 w-[22rem] border border-line bg-panel py-2 shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+            {servicesOpen ? (
+              <div
+                id={servicesMenuId}
+                role="menu"
+                className="absolute top-full left-0 z-50 mt-1 w-[22rem] border border-line bg-panel py-2 shadow-[0_12px_40px_rgba(0,0,0,0.35)]"
+              >
                 {SERVICES.map((service) => (
                   <Link
                     key={service.slug}
+                    role="menuitem"
                     href={`/services/${service.slug}`}
-                    onClick={() => setOpen(false)}
+                    onClick={() => setServicesOpen(false)}
                     className="block px-4 py-2.5 transition-colors hover:bg-panel-hover focus-ring"
                   >
                     <span className="block text-[13px] font-medium text-snow">
@@ -87,71 +127,101 @@ export function SiteHeader() {
             ) : null}
           </div>
 
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-3 py-2 text-[13px] text-fog transition-colors hover:text-snow focus-ring"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const active =
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "inline-flex min-h-10 items-center px-3 text-[13px] transition-colors focus-ring",
+                  active ? "text-snow" : "text-fog hover:text-snow",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <ThemeToggle />
           <Link
             href="/login"
-            className="hidden h-9 items-center border border-gold/70 bg-gold px-3.5 text-[11px] font-semibold tracking-[0.08em] text-[#0c1218] uppercase transition-colors hover:bg-[#e8b84a] sm:inline-flex focus-ring"
+            className="hidden min-h-10 items-center border border-line px-3.5 text-[12px] font-medium text-fog transition-colors hover:border-line-strong hover:text-snow lg:inline-flex focus-ring"
           >
             Client Portal
           </Link>
+          <Link
+            href="/contact#quote"
+            className="hidden min-h-10 items-center bg-gold px-4 text-[12px] font-semibold tracking-[0.04em] text-[#0c1218] transition-colors hover:bg-[#e8b84a] lg:inline-flex focus-ring"
+          >
+            Request a Quote
+          </Link>
           <button
             type="button"
-            className="inline-flex h-9 items-center border border-line px-2.5 text-[11px] tracking-wide text-fog uppercase lg:hidden focus-ring"
+            className="inline-flex min-h-10 min-w-10 items-center justify-center border border-line px-3 text-[12px] font-medium tracking-wide text-fog uppercase transition-colors hover:text-snow lg:hidden focus-ring"
             aria-expanded={mobileOpen}
+            aria-controls={mobilePanelId}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            Menu
+            {mobileOpen ? "Close" : "Menu"}
           </button>
         </div>
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-line bg-panel px-5 py-4 lg:hidden">
+        <nav
+          id={mobilePanelId}
+          aria-label="Mobile"
+          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-panel px-5 py-5 lg:hidden"
+        >
+          <div className="mb-5 flex flex-col gap-2">
+            <Link
+              href="/contact#quote"
+              onClick={() => setMobileOpen(false)}
+              className="cta-primary focus-ring"
+            >
+              Request a Quote
+            </Link>
+            <Link
+              href="/login"
+              onClick={() => setMobileOpen(false)}
+              className="cta-secondary focus-ring"
+            >
+              Client Portal
+            </Link>
+          </div>
+
           <p className="meta-label mb-2">Services</p>
-          <div className="mb-4 space-y-1">
+          <div className="mb-4 space-y-0.5">
             {SERVICES.map((service) => (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 onClick={() => setMobileOpen(false)}
-                className="block py-2 text-[13px] text-fog hover:text-snow focus-ring"
+                className="block min-h-11 py-3 text-[14px] text-fog transition-colors hover:text-snow focus-ring"
               >
                 {service.navLabel}
               </Link>
             ))}
           </div>
-          <div className="space-y-1 border-t border-line pt-3">
+          <div className="space-y-0.5 border-t border-line pt-3">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-2 text-[13px] text-fog hover:text-snow focus-ring"
+                className="block min-h-11 py-3 text-[14px] text-fog transition-colors hover:text-snow focus-ring"
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/login"
-              onClick={() => setMobileOpen(false)}
-              className="mt-3 inline-flex h-9 items-center bg-gold px-3.5 text-[11px] font-semibold tracking-[0.08em] text-[#0c1218] uppercase focus-ring"
-            >
-              Client Portal
-            </Link>
           </div>
-        </div>
+        </nav>
       ) : null}
     </header>
   );

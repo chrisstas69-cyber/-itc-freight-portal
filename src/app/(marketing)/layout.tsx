@@ -9,8 +9,11 @@ export default function MarketingLayout({
 }) {
   return (
     <MarketingThemeProvider>
+      <a href="#main-content" className="skip-link focus-ring">
+        Skip to main content
+      </a>
       <SiteHeader />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <SiteFooter />
     </MarketingThemeProvider>
   );
