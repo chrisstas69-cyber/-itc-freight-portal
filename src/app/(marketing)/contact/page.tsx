@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { QuoteContactForm } from "@/components/marketing/QuoteContactForm";
 import { COMPANY } from "@/lib/content/company";
 
 export const metadata: Metadata = {
@@ -67,9 +66,44 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-            <address className="mt-8 not-italic text-[15px] leading-relaxed text-fog">
-              {COMPANY.hq.city}
-            </address>
+
+            <dl className="mt-8 space-y-5 text-[15px] leading-relaxed">
+              <div>
+                <dt className="meta-label">Headquarters</dt>
+                <dd className="mt-2 text-fog">
+                  {COMPANY.hq.line1}
+                  <br />
+                  {COMPANY.hq.city}
+                </dd>
+              </div>
+              <div>
+                <dt className="meta-label">Email</dt>
+                <dd className="mt-2">
+                  <a
+                    href={`mailto:${COMPANY.contact.email}`}
+                    className="text-gold transition-colors hover:text-snow focus-ring"
+                  >
+                    {COMPANY.contact.email}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="meta-label">Phone</dt>
+                <dd className="mt-2">
+                  <a
+                    href={COMPANY.contact.phoneHref}
+                    className="text-fog transition-colors hover:text-snow focus-ring"
+                  >
+                    {COMPANY.contact.phone}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="meta-label">Fax</dt>
+                <dd className="mt-2 text-fog">{COMPANY.contact.fax}</dd>
+              </div>
+            </dl>
+
             <div className="relative mt-10 h-44 overflow-hidden border border-line">
               <Image
                 src="/images/facility-warehouse.jpg"
@@ -80,11 +114,8 @@ export default function ContactPage() {
               />
             </div>
             <p className="mt-8 text-[13px] leading-relaxed text-mist">
-              For portal access or an active shipment, use{" "}
-              <Link href="/login" className="text-gold hover:text-snow focus-ring">
-                Client Portal
-              </Link>
-              .
+              Prefer to talk live? Call the operations desk — a real person
+              answers.
             </p>
           </div>
 
@@ -93,56 +124,16 @@ export default function ContactPage() {
             <p className="mt-4 text-[14px] leading-relaxed text-fog">
               Origin, destination, mode, commodity, pieces or weight, and target
               ETA. Quotes can include formal entry, bonded staging, and delivery.
+              Submitting opens an email to our desk at{" "}
+              <a
+                href={`mailto:${COMPANY.contact.email}`}
+                className="text-gold hover:text-snow focus-ring"
+              >
+                {COMPANY.contact.email}
+              </a>
+              .
             </p>
-            <form className="mt-8 grid gap-4" noValidate>
-              <div>
-                <label htmlFor="quote-email" className="meta-label">
-                  Work email
-                </label>
-                <input
-                  id="quote-email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  placeholder="name@company.com"
-                  className="mt-2 h-11 w-full border border-line bg-ink/40 px-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
-                />
-              </div>
-              <div>
-                <label htmlFor="quote-lane" className="meta-label">
-                  Origin → Destination
-                </label>
-                <input
-                  id="quote-lane"
-                  name="lane"
-                  type="text"
-                  required
-                  placeholder="Origin → Destination"
-                  className="mt-2 h-11 w-full border border-line bg-ink/40 px-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
-                />
-              </div>
-              <div>
-                <label htmlFor="quote-details" className="meta-label">
-                  Shipment details
-                </label>
-                <textarea
-                  id="quote-details"
-                  name="details"
-                  required
-                  rows={5}
-                  placeholder="Commodity, pieces/weight, Incoterms, target ETA"
-                  className="mt-2 w-full border border-line bg-ink/40 px-3 py-3 text-[13px] text-snow placeholder:text-mist/55 focus-ring focus:border-gold"
-                />
-              </div>
-              <Button type="submit" variant="quote" className="mt-2 w-fit" size="md">
-                Submit quote request
-              </Button>
-              <p className="text-[12px] leading-relaxed text-mist">
-                This form collects quote details for follow-up. It does not create
-                a live booking or tracking record.
-              </p>
-            </form>
+            <QuoteContactForm />
           </div>
         </div>
       </section>

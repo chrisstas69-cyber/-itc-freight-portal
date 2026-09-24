@@ -35,7 +35,7 @@ export default function HomePage() {
         />
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 py-20 text-center sm:py-24 md:px-8 md:py-28 lg:py-32">
           <div className="fade-rise relative flex w-full max-w-3xl flex-col items-center">
-            <div className="hero-logo-panel" role="img" aria-label="ITC Group">
+            <div className="hero-logo-panel" role="img" aria-label="ITC Group USA">
               <Image
                 src="/brand/itc-group-mark.png"
                 alt=""
@@ -45,7 +45,12 @@ export default function HomePage() {
                 className="hero-logo-panel__img"
                 aria-hidden
               />
-              <p className="hero-logo-wordmark">ITC GROUP</p>
+              <div className="hero-logo-lockup">
+                <p className="hero-logo-wordmark">
+                  ITC Group <span>USA</span>
+                </p>
+                <p className="hero-logo-since">Since 1984</p>
+              </div>
             </div>
 
             <p className="hero-logo-gap section-label text-[#f0c040]">
@@ -82,32 +87,49 @@ export default function HomePage() {
 
 
 
-      {/* Portal-oriented shipment access — no public tracking lookup */}
+      {/* Direct contact — portal deferred until ops systems are integrated */}
       <section className="border-b border-line bg-panel">
         <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-12">
           <div className="grid gap-6 border border-line bg-ink/25 p-6 hairline-top md:grid-cols-[1fr_auto] md:items-center md:gap-10 md:p-8">
             <div className="max-w-2xl">
-              <p className="section-label">Client Shipment Tracking</p>
+              <p className="section-label">Talk to operations</p>
               <h2 className="display-title mt-3 text-[1.25rem] md:text-[1.4rem]">
-                Secure access for existing customers
+                Reach ITC Group USA directly
               </h2>
               <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-fog">
-                Sign in to the Client Portal to securely review your shipment
-                activity. Public shipment lookup is not available on this site.
+                Email or call the desk for quotes, shipment status, and brokerage
+                questions. A real person answers — not a call center.
+              </p>
+              <p className="mt-4 text-[13px] text-mist">
+                <a
+                  href={`mailto:${COMPANY.contact.email}`}
+                  className="font-medium text-gold transition-colors hover:text-snow focus-ring"
+                >
+                  {COMPANY.contact.email}
+                </a>
+                <span className="mx-2 text-line-strong" aria-hidden>
+                  ·
+                </span>
+                <a
+                  href={COMPANY.contact.phoneHref}
+                  className="transition-colors hover:text-snow focus-ring"
+                >
+                  {COMPANY.contact.phone}
+                </a>
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row md:flex-col lg:flex-row">
-              <Link
-                href="/login"
+              <a
+                href={`mailto:${COMPANY.contact.email}`}
                 className="inline-flex min-h-11 items-center justify-center border border-line bg-panel px-5 text-[13px] font-medium text-snow transition-colors hover:border-gold/50 hover:text-gold focus-ring"
               >
-                Sign In to Client Portal
-              </Link>
+                Email Operations
+              </a>
               <Link
                 href="/contact#quote"
                 className="inline-flex min-h-11 items-center justify-center px-4 text-[13px] text-mist underline-offset-4 transition-colors hover:text-snow hover:underline focus-ring"
               >
-                Need a quote instead?
+                Request a quote →
               </Link>
             </div>
           </div>

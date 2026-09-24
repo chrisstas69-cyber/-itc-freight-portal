@@ -71,11 +71,6 @@ export function SiteFooter() {
                 Contact
               </Link>
             </li>
-            <li>
-              <Link href="/login" className="inline-flex min-h-10 items-center transition-colors hover:text-snow focus-ring">
-                Client Portal
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -88,13 +83,28 @@ export function SiteFooter() {
             >
               Request a Quote
             </Link>
-            <Link
-              href="/login"
+            <a
+              href={`mailto:${COMPANY.contact.email}`}
               className="cta-secondary focus-ring"
             >
-              Client Portal
-            </Link>
+              Email Operations
+            </a>
           </div>
+          <p className="mt-4 text-[12px] leading-relaxed text-mist">
+            <a
+              href={`mailto:${COMPANY.contact.email}`}
+              className="text-gold transition-colors hover:text-snow focus-ring"
+            >
+              {COMPANY.contact.email}
+            </a>
+            <br />
+            <a
+              href={COMPANY.contact.phoneHref}
+              className="mt-1 inline-block transition-colors hover:text-snow focus-ring"
+            >
+              {COMPANY.contact.phone}
+            </a>
+          </p>
           <p className="meta-label mt-8">Services</p>
           <ul className="mt-3 space-y-2 text-[13px] text-fog">
             {SERVICES.map((s) => (

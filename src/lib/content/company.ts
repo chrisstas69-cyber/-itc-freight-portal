@@ -7,7 +7,14 @@ export const COMPANY = {
   founded: 1984,
   positioning: "A complete worldwide freight logistics company since 1984",
   hq: {
+    line1: "500 Ocean Avenue",
     city: "East Rockaway, NY 11518",
+  },
+  contact: {
+    email: "info@itcgroupusa.com",
+    phone: "516-599-7400",
+    phoneHref: "tel:+15165997400",
+    fax: "516-599-7418",
   },
   footprint: "Worldwide door-to-door freight logistics",
   opsModel: "One accountable desk with an agency network — 100% in-house operations, no subcontracting",

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { ItcGrpLogo } from "@/components/marketing/ItcGrpLogo";
 import { ThemeToggle } from "@/components/marketing/MarketingTheme";
+import { COMPANY } from "@/lib/content/company";
 import { SERVICES } from "@/lib/content/services";
 import { cn } from "@/lib/utils";
 
@@ -149,12 +150,6 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
           <ThemeToggle />
           <Link
-            href="/login"
-            className="hidden min-h-10 items-center border border-line px-3.5 text-[12px] font-medium text-fog transition-colors hover:border-line-strong hover:text-snow lg:inline-flex focus-ring"
-          >
-            Client Login
-          </Link>
-          <Link
             href="/contact#quote"
             className="hidden min-h-10 items-center bg-gold px-4 text-[12px] font-semibold tracking-[0.04em] text-[#0c1218] transition-colors hover:bg-[#e8b84a] lg:inline-flex focus-ring"
           >
@@ -187,13 +182,13 @@ export function SiteHeader() {
             >
               Request a Quote
             </Link>
-            <Link
-              href="/login"
+            <a
+              href={`mailto:${COMPANY.contact.email}`}
               onClick={() => setMobileOpen(false)}
               className="cta-secondary focus-ring"
             >
-              Client Login
-            </Link>
+              Email Operations
+            </a>
           </div>
 
           <p className="meta-label mb-2">Services</p>

@@ -54,8 +54,8 @@ export default function FacilityPage() {
                 <p className="text-[15px] leading-relaxed text-fog">
                   Import cargo is received under bond, held in bonded staging when
                   entry or exam status requires it, and released before outbound
-                  trucking. Formal entry status and CFS events share the shipment ID
-                  visible in the client portal — with integrated real-time office and
+                  trucking. Formal entry status and CFS events share one shipment
+                  ID across the desk — with integrated real-time office and
                   warehouse inventory tracking.
                 </p>
                 <dl className="mt-12 space-y-6">
