@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { ItcGrpLogo } from "@/components/marketing/ItcGrpLogo";
 import { ThemeToggle } from "@/components/marketing/MarketingTheme";
 import { SERVICES } from "@/lib/content/services";
 import { cn } from "@/lib/utils";
@@ -61,18 +61,18 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-panel/95 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-5 md:h-[4.25rem] md:px-8">
-        <Link href="/" className="flex shrink-0 items-center gap-3 focus-ring">
-          <Image
-            src="/brand/itc-grp-mark.png"
-            alt="ITC Group USA"
-            width={56}
-            height={80}
-            className="h-10 w-auto md:h-11"
+      <div className="mx-auto flex h-[3.25rem] max-w-7xl items-center justify-between gap-3 px-5 md:h-14 md:px-8">
+        <Link
+          href="/"
+          className="flex min-w-0 shrink items-center gap-2.5 focus-ring sm:gap-3"
+        >
+          <ItcGrpLogo
             priority
+            alt="ITC Group USA"
+            className="h-9 w-auto max-h-9 max-w-[150px] object-contain sm:h-10 sm:max-h-10 sm:max-w-[175px] md:h-11 md:max-h-11 md:max-w-[190px]"
           />
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="text-[15px] font-semibold tracking-[0.04em] text-snow">
+          <span className="hidden min-w-0 flex-col leading-none sm:flex">
+            <span className="truncate text-[14px] font-semibold tracking-[0.04em] text-snow md:text-[15px]">
               ITC Group <span className="text-gold">USA</span>
             </span>
             <span className="mt-1 text-[10px] tracking-[0.14em] text-mist uppercase">
@@ -146,13 +146,13 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
           <ThemeToggle />
           <Link
             href="/login"
             className="hidden min-h-10 items-center border border-line px-3.5 text-[12px] font-medium text-fog transition-colors hover:border-line-strong hover:text-snow lg:inline-flex focus-ring"
           >
-            Client Portal
+            Client Login
           </Link>
           <Link
             href="/contact#quote"
@@ -177,7 +177,7 @@ export function SiteHeader() {
         <nav
           id={mobilePanelId}
           aria-label="Mobile"
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-panel px-5 py-5 lg:hidden"
+          className="max-h-[calc(100dvh-3.25rem)] overflow-y-auto border-t border-line bg-panel px-5 py-5 lg:hidden"
         >
           <div className="mb-5 flex flex-col gap-2">
             <Link
@@ -192,7 +192,7 @@ export function SiteHeader() {
               onClick={() => setMobileOpen(false)}
               className="cta-secondary focus-ring"
             >
-              Client Portal
+              Client Login
             </Link>
           </div>
 

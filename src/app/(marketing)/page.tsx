@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GlobalReach } from "@/components/marketing/GlobalReach";
 import { HomeServicesSection } from "@/components/marketing/HomeServicesSection";
+import { ItcGrpLogo } from "@/components/marketing/ItcGrpLogo";
 import {
   COMPANY,
   SECURITY_POINTS,
@@ -35,53 +36,39 @@ export default function HomePage() {
         />
         <div className="relative mx-auto flex max-w-7xl flex-col items-center px-5 py-20 text-center sm:py-24 md:px-8 md:py-28 lg:py-32">
           <div className="fade-rise relative flex w-full max-w-3xl flex-col items-center">
-            <Image
-              src="/brand/itc-grp-mark.png"
-              alt=""
-              width={72}
-              height={104}
-              className="h-14 w-auto opacity-95 drop-shadow-[0_12px_28px_rgba(0,0,0,0.7)] sm:h-16"
+            {/* Swap ItcGrpLogo src later for transparent PNG/SVG */}
+            <ItcGrpLogo
               priority
+              alt="ITC GRP"
+              className="w-20 sm:w-[95px] md:w-[110px] lg:w-[120px] max-w-[125px]"
             />
 
-            <h1 className="hero-display mt-5 max-w-[14ch] text-[2.5rem] font-semibold tracking-[0.02em] text-white sm:mt-6 sm:text-[3.15rem] md:text-[3.85rem] lg:text-[4.35rem]">
-              ITC Group{" "}
-              <span className="text-[#f0c040]">USA</span>
-            </h1>
-
-            <p className="mt-5 max-w-[36ch] text-[1.05rem] font-medium leading-snug text-white/95 sm:mt-6 sm:max-w-[40ch] sm:text-[1.25rem] md:text-[1.35rem]">
-              A complete worldwide freight logistics company since 1984.
+            <p className="mt-5 section-label text-[#f0c040] sm:mt-6">
+              Trusted Freight Logistics Since 1984
             </p>
 
-            <p className="mt-5 max-w-[42ch] border-t border-[#f0c040]/40 pt-5 text-[14px] leading-relaxed text-[#f5d27a] sm:mt-6 sm:max-w-[48ch] sm:text-[15px] md:text-[16px]">
-              When you call, a real person answers — not a call center, not a
-              bot. Ready to handle your freight logistics needs personally,
-              door-to-door, around the world.
+            <h1 className="hero-display mt-4 max-w-[22ch] text-[1.85rem] font-semibold tracking-[0.01em] text-white sm:mt-5 sm:text-[2.35rem] md:text-[2.85rem] lg:text-[3.25rem]">
+              Worldwide Freight Logistics—With Personal Service Since 1984
+            </h1>
+
+            <p className="mt-5 max-w-[42ch] text-[14px] leading-relaxed text-white/90 sm:mt-6 sm:max-w-[48ch] sm:text-[15px] md:text-[16px]">
+              When you call, a real person answers—not a call center, not a bot.
+              We handle worldwide air, ocean, and ground freight logistics
+              personally, door to door.
             </p>
           </div>
 
           <div className="fade-rise-delay relative z-10 mt-9 flex w-full max-w-xl flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-            <Link
-              href="/contact#quote"
-              className="cta-primary focus-ring"
-            >
-              Request a Quote
+            <Link href="/contact#quote" className="cta-primary focus-ring">
+              Request a Freight Quote
             </Link>
-            <Link
-              href="/contact"
-              className="cta-secondary-on-dark focus-ring"
-            >
+            <Link href="/contact" className="cta-secondary-on-dark focus-ring">
               Speak With a Logistics Specialist
-            </Link>
-            <Link
-              href="/login"
-              className="inline-flex min-h-11 items-center justify-center px-3 text-[13px] text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline focus-ring sm:ml-1"
-            >
-              Client Portal
             </Link>
           </div>
         </div>
       </section>
+
 
       {/* Portal-oriented shipment access — no public tracking lookup */}
       <section className="border-b border-line bg-panel">
