@@ -68,8 +68,8 @@ export function SiteHeader() {
         >
           <ItcGrpLogo
             priority
-            alt="ITC Group USA"
-            className="h-9 w-auto max-h-9 max-w-[150px] object-contain sm:h-10 sm:max-h-10 sm:max-w-[175px] md:h-11 md:max-h-11 md:max-w-[190px]"
+            alt="ITC Group"
+            className="h-9 w-auto max-h-9 max-w-[120px] object-contain sm:h-10 sm:max-h-10 sm:max-w-[140px] md:h-11 md:max-h-11 md:max-w-[150px]"
           />
           <span className="hidden min-w-0 flex-col leading-none sm:flex">
             <span className="truncate text-[14px] font-semibold tracking-[0.04em] text-snow md:text-[15px]">

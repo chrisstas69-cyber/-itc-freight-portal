@@ -2,12 +2,12 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Primary ITC GRP brand mark for marketing surfaces.
- * Swap `LOGO_SRC` later for a transparent PNG/SVG without touching call sites.
+ * Primary ITC Group brand mark (wing emblem).
+ * Pair with "ITC Group" wordmark text in the header.
  */
-const LOGO_SRC = "/brand/itc-grp-logo.png";
-const LOGO_WIDTH = 306;
-const LOGO_HEIGHT = 306;
+const LOGO_SRC = "/brand/itc-group-mark.png";
+const LOGO_WIDTH = 233;
+const LOGO_HEIGHT = 140;
 
 type ItcGrpLogoProps = {
   className?: string;
@@ -18,7 +18,7 @@ type ItcGrpLogoProps = {
 export function ItcGrpLogo({
   className,
   priority = false,
-  alt = "ITC GRP",
+  alt = "ITC Group",
 }: ItcGrpLogoProps) {
   return (
     <Image
