@@ -53,11 +53,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <p className="hero-logo-gap section-label text-[#f0c040]">
-              Trusted Freight Logistics Since 1984
-            </p>
-
-            <h1 className="hero-display hero-home-headline mt-4 max-w-[20ch] font-semibold tracking-[0.01em] text-white sm:mt-5">
+            <h1 className="hero-display hero-home-headline hero-logo-gap mt-0 max-w-[20ch] font-semibold tracking-[0.01em] text-white">
               Worldwide Freight Logistics—With Personal Service Since 1984
             </h1>
 
